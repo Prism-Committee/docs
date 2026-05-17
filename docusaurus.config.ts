@@ -17,8 +17,8 @@ const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'zh-CN';
 const isZh = currentLocale === 'zh-CN';
 
 const config: Config = {
-  title: "Prism-Committee's Docs",
-  tagline: 'Projects, notes, and technical documentation by Prism-Committee.',
+  title: "Prism's Docs",
+  tagline: "Prism-Committee's Docs",
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -99,7 +99,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Prism-Committee's Docs",
+      title: "Prism's Docs",
       logo: {
         alt: "Prism-Committee's Docs Logo",
         src: "img/logo.png",
