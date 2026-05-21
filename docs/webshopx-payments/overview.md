@@ -7,20 +7,21 @@ sidebar_position: 1
 
 # WebShopX-Payments 服主文档
 
+This plugin is based on [SweetCheckout](https://github.com/MrXiaoM/SweetCheckout), licensed under AGPL-3.0.
+
 ## 问题反馈
 
-- Issues 仓库：https://github.com/Prism-Committee/WebShopX-Issues
+- Issues 仓库：https://github.com/Prism-Committee/WebShopX-Payments
 
 本目录面向插件安装者、运维与后台管理员，详细介绍 `WebShopX-Payments` 支付集成插件的部署与配置。
 
 :::info[阅读地图]
 1. [安装与部署](./install-deploy)
 2. [配置文件详解](./configuration)
-3. [支付方案说明](./payment-solution)
-4. [官方支付通道配置](./official-channels)
-5. [Hook 支付通道配置](./hook-channels)
-6. [命令与权限体系](./commands-permissions)
-7. [常见问题与排障](./faq)
+3. [官方支付通道配置](./official-channels)
+4. [Hook 支付通道配置](./hook-channels)
+5. [命令与权限体系](./commands-permissions)
+6. [常见问题与排障](./faq)
 :::
 
 ## 一眼看懂 WebShopX-Payments 职责
