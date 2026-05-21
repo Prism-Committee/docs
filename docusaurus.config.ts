@@ -20,6 +20,10 @@ const config: Config = {
   title: "Prism's Docs",
   tagline: "Prism-Committee's Docs",
   favicon: 'img/favicon.ico',
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
