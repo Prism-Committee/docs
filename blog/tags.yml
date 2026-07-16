@@ -12,3 +12,13 @@ notes:
   label: Notes
   permalink: /notes
   description: Technical notes and learnings
+
+donate:
+  label: Donate
+  permalink: /donate
+  description: Ways to support ongoing development and maintenance
+
+support:
+  label: Support
+  permalink: /support
+  description: Support and sponsorship updates

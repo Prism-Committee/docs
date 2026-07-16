@@ -140,19 +140,23 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '社区' : 'Community',
+          title: isZh ? '友情链接' : 'Links',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Modrinth',
+              href: 'https://modrinth.com/user/Cc-Cece',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'CurseForge',
+              href: 'https://www.curseforge.com/members/cc_cece/projects',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'MC百科',
+              href: 'https://center.mcmod.cn/844177/',
+            },
+            {
+              label: 'MineBBS',
+              href: 'https://www.minebbs.com/members/kanbara.252625/#resources',
             },
           ],
         },
