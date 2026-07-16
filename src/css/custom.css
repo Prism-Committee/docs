@@ -28,3 +28,21 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+/* Optional chrome-free layout for embedded pages.
+ * ?hideNavbar=1 hides only the navbar.
+ * ?hideFooter=1 hides only the footer.
+ * ?embed=1 hides both.
+ */
+html[data-hide-navbar] .theme-layout-navbar,
+html[data-hide-navbar] .navbar {
+  display: none !important;
+}
+
+html[data-hide-navbar] {
+  --ifm-navbar-height: 0px;
+}
+
+html[data-hide-footer] .theme-layout-footer,
+html[data-hide-footer] .footer {
+  display: none !important;
+}
