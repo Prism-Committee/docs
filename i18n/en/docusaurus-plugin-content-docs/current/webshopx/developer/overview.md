@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # Developer Entry
 
-This page remains for compatibility with older links. The primary development path now starts with [Developer Quickstart](./quickstart) instead of requiring developers to read several small protocol pages first.
+The primary development path starts with [Developer Quickstart](./quickstart), then continues into the relevant API family.
 
 Recommended path:
 
@@ -19,4 +19,4 @@ Recommended path:
 
 Shared authentication, status-code, idempotency, error, enum, and upload conventions are consolidated in [HTTP API Reference](../reference/http-api-reference).
 
-The older API-basics, authentication, errors/idempotency, uploads, and integration-playbook pages remain available for historical links but are no longer separate primary navigation steps.
+Protocol basics, authentication, errors/idempotency, uploads, and integration topics are available under **Topic reference**.
