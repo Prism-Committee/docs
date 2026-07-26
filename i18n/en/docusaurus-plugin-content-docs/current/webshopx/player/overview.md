@@ -1,47 +1,20 @@
 ---
 id: overview
-title: Overview
-sidebar_label: Overview
+title: Player Entry
+sidebar_label: Player Entry
 sidebar_position: 1
 ---
 
-# WebShopX Player Guide
+# Player Entry
 
-This section is for regular players. It focuses on actions you perform in game or on the WebShopX site.
+This page remains for compatibility with older links. The primary navigation now groups player tasks under [Guides](../guides/overview) instead of exposing many small pages as peers.
 
-## Start Here
+Start with [Quick Start](./quick-start), then continue with:
 
-| Goal | Read |
-| --- | --- |
-| First web login | [Quick Start](./quick-start) |
-| Buy items, view orders, refund | [Shop, Market, and Orders](./shop-and-orders) |
-| Check balances, exchange, recharge | [Wallet and Exchange](./wallet-and-exchange) |
-| View web inventory or start a trade | [Web Inventory](./inventory) |
-| Claim pending deliveries or mailbox items | [Claim and Mailbox](./claim-and-mailbox) |
-| Use auctions | [Auctions](./auctions) |
-| Understand dynamic pricing | [Dynamic Pricing](./dynamic-pricing) |
-| Troubleshoot listing rejection | [Listing Limits](./limits) and [FAQ](./faq) |
-| Look up terminology | [Glossary](./glossary) |
+- [Shop, Market, and Orders](./shop-and-orders)
+- [Wallet and Exchange](./wallet-and-exchange)
+- [Inventory, Claims, and Mailbox](../guides/inventory-and-delivery)
+- [Auctions, Dynamic Pricing, and Trading Rules](../guides/auctions-and-pricing)
+- [FAQ](./faq)
 
-## Common Commands
-
-```text
-/ws
-/ws home
-/ws password <newPassword>
-/ws market sell <price> [amount] [currency]
-/ws market logs [count]
-/ws claim [all|ODR-|MKT-|CLM-|MCL-]
-/ws mailbox
-/ws mailbox collect
-```
-
-Full command and permission details are maintained in the administrator/reference documentation rather than duplicated here.
-
-## Feature Status
-
-- **Stable**: intended for normal use.
-- **Beta**: usable, but behavior or UI may still change.
-- **Experimental**: may be disabled by default or have explicit risks/limitations.
-
-Offline playerdata writes are experimental. Whether they are available is controlled by the server administrator.
+Older auction, dynamic-pricing, algorithm, and listing-limit pages remain available for deep reading and compatibility, but no longer occupy the primary sidebar.
