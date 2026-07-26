@@ -67,7 +67,7 @@ WebShopX serves the API while static files are hosted by Nginx/CDN or another we
 
 WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not need to expose the web port directly.
 
-Current official service panel: **[https://47.122.127.164/](https://47.122.127.164/)**.
+Current official service panel: **[Open the WebShopX Relay service panel](https://47.122.127.164/)**.
 
 Each user can claim one **5-day free trial**. Users may also purchase a plan directly from the panel or activate service with an eligible redemption code. For additional trial time, join QQ group `636803372` and follow the current trial instructions.
 
