@@ -7,14 +7,7 @@ sidebar_position: 6
 
 # Dynamic Pricing
 
-This page explains, based on source behavior, how dynamic pricing is calculated, when it changes, and why it changes.
-
-:::info[In This Page]
-- Where it applies and where it does not
-- Core fields and common calculation flow
-- 7 algorithm formulas and parameters
-- Fault tolerance, fallback, and errors
-:::
+Dynamic pricing changes automatically based on demand, algorithm parameters, and configured price boundaries.
 
 ## 1. Where Dynamic Pricing Applies
 
@@ -65,7 +58,7 @@ Current default behavior increments `delta` by quantity (minimum 1).
 
 ## 4. How to Read Algorithms on the Page
 
-The page shows the active algorithm name while buying. Knowing the model helps you choose better timing and opportunities:
+The active algorithm name is shown while buying. Knowing the model helps you choose better timing and opportunities:
 
 - **Linear Demand** `LINEAR_DEMAND_V1`
   - **Behavior**: more buying causes steady upward price changes; easiest to understand.
@@ -102,4 +95,3 @@ The page shows the active algorithm name while buying. Knowing the model helps y
 2. In high-demand conditions, buy in batches to avoid pushing price too high at once.
 3. If cap is configured, chasing after a spike is usually riskier.
 4. Dynamic pricing fits `DIRECT` quick trades, not auction-style gameplay.
-

@@ -19,11 +19,7 @@ Common statuses:
 
 ## 2. Fallback After Auto-Delivery Failure
 
-When auto-delivery fails and reaches threshold, status falls back to `WAIT_CLAIM`, and the player gets a claim prompt.
-
-Implementation constant:
-
-- `MAX_AUTO_RETRY_BEFORE_CLAIM = 3`
+When auto-delivery repeatedly fails, status can fall back to `WAIT_CLAIM`, and the player receives a claim prompt.
 
 ## 3. Claim Commands and Tokens
 
@@ -32,44 +28,28 @@ Implementation constant:
 - Official order ID prefix: `ODR-`
 - Market trade ID prefix: `MKT-`
 
-`/ws claim` supports:
-
-- `all`
-- `ODR-*`
-- `MKT-*`
-- `CLM-*`
-- `MCL-*`
+`/ws claim` supports `all`, `ODR-*`, `MKT-*`, `CLM-*`, and `MCL-*`.
 
 ## 4. Shared Claim Switch
 
 When `allowSharedClaimCommand=false`, only the owner can claim; delegated claim returns `claim_forbidden`.
 
-## 5. Mailbox Fallback Mechanism
+## 5. Mailbox Fallback
 
-If items cannot be put into inventory directly (for example, inventory full), they are put into `mailbox_items` waiting list:
+If items cannot be placed into inventory directly, they can be stored in the mailbox:
 
-- Players can batch claim via `/ws mailbox claim`
-- Backend can remind players through notification templates
+```text
+/ws mailbox
+/ws mailbox collect
+```
 
-## 6. Refund Strategy (Official Orders + Market Orders)
+## 6. Refund Strategy
 
-### 6.1 `refundUndeliveredEnabled=true`
+Refund eligibility depends on order state and the configured refund policy. Before manual intervention, confirm whether delivery already happened and whether a refund deadline or cooldown applies.
 
-Allows refund for `PENDING` / `WAIT_CLAIM`.
-
-### 6.2 `refundUndeliveredEnabled=false`
-
-Depends on refund deadline `refund_deadline`; timeout returns `refund_expired`.
-
-### 6.3 Group-Buy Vouchers
-
-- `CONSUMED` cannot be refunded
-- `ISSUED` can be refunded only when undelivered-refund policy allows
-
-## 7. Recommended Monitoring Metrics
+## 7. Recommended Monitoring
 
 1. `WAIT_CLAIM` count trend.
-2. `mailbox` backlog size.
-3. Refund trigger volume and reason distribution.
-4. Delivery failure error text (offline, full inventory, insufficient permissions, etc.).
-
+2. Mailbox backlog size.
+3. Refund volume and reason distribution.
+4. Repeated delivery failures by player, item, or node.

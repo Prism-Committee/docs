@@ -1,53 +1,40 @@
-﻿---
+---
 id: overview
-title: Overview
-sidebar_label: Overview
+title: Server Administrator Entry
+sidebar_label: Administrator Entry
 sidebar_position: 1
 ---
 
-# WebShopX Server Owner Docs
+import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 
-## Issue Tracking
+# Server Administrator Entry
 
-- Issues repository: https://github.com/Prism-Committee/WebShopX-Issues
+<DocHero
+  eyebrow="Administration"
+  title="From first deployment to governance and operations"
+  description="Server-owner work is split into two stages: complete installation and deployment first, then move into configuration, governance, operations, and troubleshooting."
+  primary={{label: 'Install and Deploy', to: './install-deploy'}}
+  secondary={{label: 'Operations and Troubleshooting', to: './operations'}}
+/>
 
-This section is for plugin installers, operators, and admin-panel managers.
+## First deployment
 
-:::info[Reading Map]
-1. [Install and Deploy](./install-deploy)
-2. [Configuration and Runtime Parameters](./configuration)
-3. [Commands and Permission System](./commands-permissions)
-4. [Market Governance and Risk Control](./governance)
-5. [Delivery, Claim, and Refund Operations](./delivery-refund-ops)
-6. [Operations Troubleshooting FAQ](./faq)
+<FeatureCards items={[
+  {icon: '🚀', title: 'Install and Deploy', description: 'Install WebShopX for the first time and choose internal, external, or relay.', to: './install-deploy', badge: 'Get started'},
+  {icon: '⬆️', title: 'v2 to v3 Migration', description: 'Review migration steps and compatibility boundaries for older installations.', to: './v2-to-v3-migration'},
+]} />
+
+## After launch
+
+<FeatureCards items={[
+  {icon: '⚙️', title: 'Configuration', description: 'Database, web modes, cluster, Redis, and other current settings.', to: './configuration'},
+  {icon: '🛡️', title: 'Market Governance', description: 'Operate market rules, restrictions, and governance.', to: './governance'},
+  {icon: '🛠️', title: 'Operations and Troubleshooting', description: 'Delivery, refunds, inventory, backup, cluster, and Relay troubleshooting.', to: './operations'},
+  {icon: '❓', title: 'Administrator FAQ', description: 'Find common administration issues by symptom.', to: './faq'},
+]} />
+
+:::tip
+For exact commands, permissions, and HTTP protocol behavior, use [Reference](../reference/overview).
 :::
 
-## WebShopX Topology at a Glance
-
-| Component | Description |
-| --- | --- |
-| Plugin Process | Built-in API service, can optionally host static pages |
-| MySQL/MariaDB | Core business data storage |
-| Vault (Optional) | `GAME_COIN` economy integration |
-| Redis (Optional) | Cluster config refresh and market broadcast |
-
-## Risks You Should Prioritize First
-
-:::warning[High-Risk Configuration Reminder]
-1. Do not keep placeholder database values (`127.0.0.1:3306/webshop/webshop/change_me`), or the plugin will refuse to start.
-2. In production, replace the initial `admin-bootstrap` password immediately after first startup.
-3. In cluster mode, `cluster.role=node` will not start Web/API. This is expected by design.
-:::
-
-## Recommended Operations Rhythm
-
-1. First, make sure "can start, can log in, can place orders" works.
-2. Then tune fees, limitation rules, and broadcast strategy.
-3. Finally run high-concurrency and failure-scenario regression (refund, claim, restock, cluster sync).
-
-## SQLite Deployment Scope (New)
-
-- Best for single-node, lightweight deployments.
-- Not suitable for multi-node cluster roles (`master/node`).
-- With SQLite, `cluster.role` must stay `standalone`.
-
+Relay, inventory operations, and delivery/refund details are available under the **Advanced topics** sidebar group.

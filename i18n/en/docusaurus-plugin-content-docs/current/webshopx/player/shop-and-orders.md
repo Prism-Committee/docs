@@ -7,13 +7,6 @@ sidebar_position: 4
 
 # Official Shop, Player Market, and Order System
 
-:::info[In This Page]
-- Official Shop
-- Player Market
-- Order System
-- Others
-:::
-
 ## 1. Official Shop
 
 The official shop is a server-admin-managed **B2C** trading system. Unlike the player market, it is usually used to stabilize server economy, sell core materials, or deliver limited special items. It supports unlimited stock, listing schedules, and products such as commands and potion effects.
@@ -123,4 +116,3 @@ The system combines three layers (priority high to low):
 1. User-specific override: configured in admin web page
 2. Permission node: `webshop.market.limit.<n>` (deprecated soon, use web settings instead)
 3. Global default: `marketMaxActiveListings`
-

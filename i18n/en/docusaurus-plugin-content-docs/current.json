@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.开始使用": {
+    "message": "Get started",
+    "description": "The label for category 开始使用 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.使用指南": {
+    "message": "Guides",
+    "description": "The label for category 使用指南 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.深入了解": {
+    "message": "Deep dives",
+    "description": "The label for category 深入了解 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.服务器管理": {
+    "message": "Administration",
+    "description": "The label for category 服务器管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.高级专题": {
+    "message": "Advanced topics",
+    "description": "The label for category 高级专题 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.开发": {
+    "message": "Development",
+    "description": "The label for category 开发 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.专题参考": {
+    "message": "Topic reference",
+    "description": "The label for category 专题参考 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.参考": {
+    "message": "Reference",
+    "description": "The label for category 参考 in sidebar tutorialSidebar"
+  }
+}

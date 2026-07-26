@@ -1,88 +1,110 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
-type FeatureItem = {
+type ProjectCard = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
+  description: string;
+  badge: string;
+  icon: string;
+  to: string;
+  secondaryTo: string;
+  secondaryLabel: string;
 };
 
-function getFeatureList(isZh: boolean): FeatureItem[] {
+function getProjects(isZh: boolean): ProjectCard[] {
   return [
     {
-      title: isZh ? '项目文档集中管理' : 'Centralized Project Docs',
-      Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-      description: isZh ? (
-        <>
-          统一维护各个项目的使用说明、部署记录和开发笔记，避免信息分散。
-        </>
-      ) : (
-        <>
-          Keep usage guides, deployment records, and development notes for all projects in one place.
-        </>
-      ),
+      title: 'WebShopX',
+      description: isZh
+        ? '面向 Minecraft 服务端的 Web 商城系统，覆盖商城、玩家市场、钱包、订单、发货与管理后台。'
+        : 'A web-first shop system for Minecraft servers with shop, player market, wallets, orders, delivery, and administration.',
+      badge: isZh ? '核心项目' : 'Core project',
+      icon: '🛍️',
+      to: '/webshopx/overview',
+      secondaryTo: '/webshopx/admin/install-deploy',
+      secondaryLabel: isZh ? '安装与部署' : 'Install & deploy',
     },
     {
-      title: isZh ? '中英双语支持' : 'Bilingual Support',
-      Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-      description: isZh ? (
-        <>
-          站点支持 <code>zh-CN</code> 与 <code>en</code>，方便不同读者快速查阅。
-        </>
-      ) : (
-        <>
-          The site supports <code>zh-CN</code> and <code>en</code> for different readers.
-        </>
-      ),
-    },
-    {
-      title: isZh ? '持续迭代与归档' : 'Continuous Iteration',
-      Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-      description: isZh ? (
-        <>
-          通过 GitHub 持续更新文档，沉淀问题排查经验和版本变更历史。
-        </>
-      ) : (
-        <>
-          Continuously update docs through GitHub and archive troubleshooting experience and release history.
-        </>
-      ),
+      title: 'WebShopX-Payments',
+      description: isZh
+        ? 'WebShopX 的独立支付扩展，用于接入支付渠道、充值流程与第三方 Payment Provider。'
+        : 'The payment extension for WebShopX, covering payment channels, recharge flows, and third-party payment providers.',
+      badge: isZh ? '支付扩展' : 'Payment extension',
+      icon: '💳',
+      to: '/webshopx-payments/overview',
+      secondaryTo: '/webshopx/webshopx-payment-api',
+      secondaryLabel: 'Payment API',
     },
   ];
-}
-
-function Feature({title, Svg, description}: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
 }
 
 export default function HomepageFeatures(): ReactNode {
   const {i18n} = useDocusaurusContext();
   const isZh = i18n.currentLocale === 'zh-CN';
-  const featureList = getFeatureList(isZh);
+  const projects = getProjects(isZh);
 
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {featureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+    <>
+      <section className={styles.projectsSection}>
+        <div className="container">
+          <div className={styles.sectionHeading}>
+            <span className={styles.sectionEyebrow}>{isZh ? '项目' : 'Projects'}</span>
+            <Heading as="h2">{isZh ? '选择你要使用的项目' : 'Choose a project'}</Heading>
+            <p>{isZh ? '先进入项目，再按任务选择教程、管理、开发或参考资料。' : 'Enter a project first, then choose guides, administration, development, or reference material.'}</p>
+          </div>
+          <div className={styles.projectGrid}>
+            {projects.map((project) => (
+              <article className={styles.projectCard} key={project.title}>
+                <div className={styles.projectTopline}>
+                  <span className={styles.projectIcon}>{project.icon}</span>
+                  <span className={styles.projectBadge}>{project.badge}</span>
+                </div>
+                <Heading as="h3">{project.title}</Heading>
+                <p>{project.description}</p>
+                <div className={styles.projectActions}>
+                  <Link className="button button--primary" to={project.to}>
+                    {isZh ? '查看文档' : 'Open docs'}
+                  </Link>
+                  <Link className="button button--secondary button--outline" to={project.secondaryTo}>
+                    {project.secondaryLabel}
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className={styles.siteSection}>
+        <div className="container">
+          <div className={styles.siteGrid}>
+            <div className={styles.siteItem}>
+              <span>⌘</span>
+              <div>
+                <strong>{isZh ? '文档集中管理' : 'Centralized documentation'}</strong>
+                <p>{isZh ? '使用说明、部署记录、开发接口与排障经验集中维护。' : 'Keep usage, deployment, APIs, and troubleshooting knowledge in one place.'}</p>
+              </div>
+            </div>
+            <div className={styles.siteItem}>
+              <span>文</span>
+              <div>
+                <strong>{isZh ? '中英双语' : 'Chinese & English'}</strong>
+                <p>{isZh ? '核心入口与主要文档同步提供中文和英文版本。' : 'Core entry points and primary documentation are maintained in both languages.'}</p>
+              </div>
+            </div>
+            <div className={styles.siteItem}>
+              <span>↻</span>
+              <div>
+                <strong>{isZh ? '持续维护' : 'Continuously maintained'}</strong>
+                <p>{isZh ? '文档跟随项目更新，保留版本变化和问题处理经验。' : 'Documentation follows project changes and preserves version and troubleshooting history.'}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
-

@@ -7,7 +7,7 @@ sidebar_position: 4
 
 # 支付方案说明
 
-本页汇总 `WebShopX-Payments` 当前支持或已实现的支付方案，便于你快速评估可用性与接入优先级。
+`WebShopX-Payments` 当前支持或已实现的支付方案如下，可用于评估可用性与接入优先级。
 
 :::info[v3.1.1 适用说明]
 
@@ -20,7 +20,7 @@ sidebar_position: 4
 | 🟢        | 支付宝      | [订单码支付](https://open.alipay.com/api/detail?code=I1080300001000068149&index=0) | **官方接口**。由服务端调用官方 API 生成动态支付二维码，用户扫码完成付款。 |
 | 🔵        | 微信支付    | [Native 支付](https://pay.weixin.qq.com/static/product/product_intro.shtml?name=native) | **官方接口**。标准扫码支付模式。系统生成动态二维码，用户扫码后拉起微信收银台。 |
 | 🟢        | PayPal      | [REST API v2](https://developer.paypal.com/docs/api/orders/v2/) | **官方接口**。基于第三方封装库 payper 调用 PayPal 官方订单 API，动态生成支付审批链接或二维码。 |
-| 🟡        | MercadoPago | [Pro Checkout](https://www.mercadopago.com.br/developers/)   | **官方接口**。MercadoPago官方接口。                          |
+| 🟡        | MercadoPago | [Pro Checkout](https://www.mercadopago.com.br/developers/)   | **官方接口**。MercadoPago 官方接口。                         |
 | 🟢        | Stripe      | [Checkout / Elements](https://docs.stripe.com/)              | **官方接口**。已接入标准 Web 支付流，支持多币种及国际信用卡。 |
 | 🔵        | 支付宝      | 免签 Hook                                                    | **第三方方案**。后端配置固定金额收款码，通过 Hook 截取开放平台的交易通知或账单信息，实现免签自动化回调。 |
 | 🔵        | 微信支付    | 免签 Hook                                                    | **第三方方案**。后端配置固定金额收款码，通过 Hook 截取微信 PC 端的实时收款通知，由后端匹配金额并确认付款。 |

@@ -13,7 +13,7 @@ Official payment channels integrate directly with the official merchant APIs of 
 
 ## Payment Solutions Overview
 
-The summary of payment options has been split into a dedicated page for independent maintenance and referencing:
+For a comparison of supported payment options, see:
 
 - [Payment Solutions](./payment-solution)
 
@@ -32,7 +32,7 @@ The official WeChat Native scanning payment uses the latest API v3 protocol, sup
   "enable": true,
   "host": "https://api.mch.weixin.qq.com",
   "currency": "CNY",
-  "app_id": "wx8888888888888888",
+  "app_id": "wx8888888888...",
   "merchant_id": "1900000109",
   "merchant_serial_number": "1D2C3B4A59000000000000000000000000000000",
   "notify_url": "https://yourdomain.com/api/wechat/notify",

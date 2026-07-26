@@ -7,14 +7,7 @@ sidebar_position: 7
 
 # Auctions
 
-This page explains WebShopX auction behavior from source-level logic: bidding rules, fund freezing, and settlement flow.
-
-:::info[In This Page]
-- Comparison of four auction modes
-- Key parameters per mode
-- Freeze/refund timing
-- Expiry settlement logic
-:::
+WebShopX auctions include multiple bidding modes plus fund freezing, refunds, and expiry settlement.
 
 ## 1. Three Things to Know Before Auctioning
 
@@ -118,4 +111,3 @@ Each batch settlement cycle handles up to 20 listings:
 2. In Dutch auctions, key is target price timing, not bid wars.
 3. In Vickrey auctions, submit your true willingness-to-pay instead of incremental bidding habits.
 4. Candle auction endings are random near the end, avoid gambling on final-second timing.
-

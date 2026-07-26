@@ -2,44 +2,57 @@
 sidebar_position: 1
 ---
 
-# Documentation Home
+import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
 
-Welcome to **Prism-Committee Docs**.  
+# Prism-Committee Docs
 
-## Documentation Sections
+<DocHero
+  eyebrow="Prism-Committee Docs"
+  title="Start with a project or the task you need to finish"
+  description="The unified documentation entry point for Prism-Committee projects, with guides, administration, development, and reference material for WebShopX and related projects."
+  primary={{label: 'Start with WebShopX', to: './webshopx/overview'}}
+  secondary={{label: 'Explore payments', to: './webshopx-payments/overview'}}
+/>
 
-- [WebShopX](./category/webshopx)  
-  Player docs, admin docs, and developer docs.
-- [WebShopX Payments](./category/webshopx-payments)  
-  Installation/deployment, configuration, payment channels, and FAQ for the payments plugin.
+<ProjectPanel
+  icon="🛍️"
+  title="WebShopX"
+  description="A web shop system for Paper, Purpur, Spigot, and Folia servers, including the official shop, player market, wallets, orders and delivery, recharge, and administration."
+  links={[
+    {label: 'GitHub source ↗', to: 'https://github.com/Cc-Cece/WebShopX'},
+    {label: 'Modrinth ↗', to: 'https://modrinth.com/plugin/webshopx'},
+    {label: 'MineBBS ↗', to: 'https://www.minebbs.com/resources/x-folia-webshopx.15688/'},
+  ]}>
 
-## Suggested Reading Paths
+<FeatureCards items={[
+  {icon: '🧭', title: 'WebShopX Overview', description: 'Understand WebShopX first and find the documentation path that fits your task.', to: './webshopx/overview', badge: 'Recommended'},
+  {icon: '👋', title: 'Player Quick Start', description: 'Set a web password and open WebShopX for the first time.', to: './webshopx/player/quick-start'},
+  {icon: '🚀', title: 'Install and Deploy', description: 'Install the plugin and choose internal, external, or relay.', to: './webshopx/admin/install-deploy', badge: 'Get started'},
+  {icon: '🛒', title: 'Guides', description: 'Shopping, trading, wallet, inventory, claims, auctions, and dynamic pricing.', to: './webshopx/guides/overview'},
+  {icon: '🛠️', title: 'Administration', description: 'Configuration, market governance, operations, and troubleshooting.', to: './webshopx/admin/overview'},
+  {icon: '💻', title: 'Development', description: 'Start with Developer Quickstart for HTTP API and plugin integration.', to: './webshopx/developer/quickstart'},
+  {icon: '📚', title: 'Reference', description: 'Look up commands, permissions, errors, configuration, and exact protocol behavior.', to: './webshopx/reference/overview'},
+]} />
 
-### Players
-1. [Overview](./webshopx/player/overview)
-2. [Quick Start](./webshopx/player/quick-start)
-3. [Wallet & Exchange](./webshopx/player/wallet-and-exchange)
+</ProjectPanel>
 
-### Server Admins
-1. [Overview](./webshopx/admin/overview)
-2. [Install & Deploy](./webshopx/admin/install-deploy)
-3. [Configuration](./webshopx/admin/configuration)
+<ProjectPanel
+  icon="💳"
+  title="WebShopX-Payments"
+  description="A standalone payment extension for WebShopX that integrates concrete payment channels and also serves as a reference implementation for third-party payment providers."
+  links={[
+    {label: 'GitHub ↗', to: 'https://github.com/Prism-Committee/WebShopX-Payments'},
+    {label: 'Modrinth ↗', to: 'https://modrinth.com/plugin/wsxpay'},
+    {label: 'MineBBS ↗', to: 'https://www.minebbs.com/resources/x-folia-webshopx-payments-webshopx.16526/'},
+  ]}>
 
-### Payment Plugin Developers
-1. [WebShopXPaymentApi Integration Guide](./webshopx/webshopx-payment-api)
-2. [WebShopX Payments Overview](./webshopx-payments/overview)
-3. [Official Payment Channels](./webshopx-payments/official-channels)
-4. [Hook Payment Channels](./webshopx-payments/hook-channels)
+<FeatureCards items={[
+  {icon: '💳', title: 'WebShopX-Payments Docs', description: 'Install the payment extension and configure supported payment channels.', to: './webshopx-payments/overview', badge: 'Payments'},
+  {icon: '🧩', title: 'WebShopXPaymentApi', description: 'Build a third-party payment provider for WebShopX.', to: './webshopx/webshopx-payment-api'},
+]} />
 
-## Usage Tips
+</ProjectPanel>
 
-1. Start with overview pages, then installation/configuration, then topic-specific details.
-2. Check each section's FAQ/troubleshooting pages first when debugging issues.
-3. For multi-server environments, align versions first, then upgrade incrementally.
-
-## Feedback
-
-If you find documentation issues or want to suggest additions, please open an issue:
-
-- GitHub: [https://github.com/Prism-Committee](https://github.com/Prism-Committee)
-
+:::info[Feedback and issues]
+Report WebShopX or documentation issues at [Prism-Committee/WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues).
+:::
