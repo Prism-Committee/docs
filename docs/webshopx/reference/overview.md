@@ -5,23 +5,31 @@ sidebar_label: Reference
 sidebar_position: 1
 ---
 
+import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
+
 # WebShopX Reference
 
-Reference 用来**查准确值**，不是从头学习 WebShopX。需要完成一个流程时，请回到 [Guides](../guides/overview) 或对应的 Administration / Development 页面。
+<DocHero
+  eyebrow="Reference"
+  title="需要精确值时，从这里查"
+  description="Reference 用来查准确名称、参数、状态、默认值和协议行为；它不是从头学习 WebShopX 的教程。"
+  primary={{label: 'HTTP API Reference', to: './http-api-reference'}}
+  secondary={{label: '返回使用指南', to: '../guides/overview'}}
+/>
 
 ## 核心参考入口
 
-| 需要查询 | 页面 |
-| --- | --- |
-| 当前运行配置 | [配置与运行时参数](../admin/configuration) |
-| 游戏命令与 Bukkit 权限 | [命令与权限体系](../admin/commands-permissions) |
-| HTTP API 公共协议、鉴权、错误码、枚举与上传约定 | [HTTP API Reference](./http-api-reference) |
-| Player API endpoints | [Player API](../developer/player-api) |
-| Market API endpoints | [Market API](../developer/market-api) |
-| Admin API endpoints | [Admin API](../developer/admin-api) |
-| Payment Provider Java API | [WebShopXPaymentApi](../webshopx-payment-api) |
-| v2 → v3 差异 | [v2 → v3 迁移](../admin/v2-to-v3-migration) |
-| 玩家/业务术语 | [名词解释](../player/glossary) |
+<FeatureCards items={[
+  {icon: '⚙️', title: '配置与运行时参数', description: '查询当前运行配置、默认值和部署参数。', to: '../admin/configuration'},
+  {icon: '⌨️', title: '命令与权限体系', description: '查询游戏命令和 Bukkit 权限。', to: '../admin/commands-permissions'},
+  {icon: '🌐', title: 'HTTP API Reference', description: '公共协议、鉴权、错误码、枚举与上传约定。', to: './http-api-reference'},
+  {icon: '👤', title: 'Player API', description: '玩家、钱包、商品、订单和通知 endpoints。', to: '../developer/player-api'},
+  {icon: '📈', title: 'Market API', description: '市场、挂单、购买、拍卖和相关 endpoints。', to: '../developer/market-api'},
+  {icon: '🛡️', title: 'Admin API', description: '后台管理、治理、支持与审计 endpoints。', to: '../developer/admin-api'},
+  {icon: '💳', title: 'Payment Provider API', description: 'WebShopXPaymentApi Java / Bukkit 集成参考。', to: '../webshopx-payment-api'},
+  {icon: '⬆️', title: 'v2 → v3 迁移', description: '查询版本差异和兼容边界。', to: '../admin/v2-to-v3-migration'},
+  {icon: '📖', title: '名词解释', description: '查询玩家与业务术语。', to: '../player/glossary'},
+]} />
 
 ## 事实源优先级
 
