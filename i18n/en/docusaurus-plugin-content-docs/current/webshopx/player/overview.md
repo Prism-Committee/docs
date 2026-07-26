@@ -1,61 +1,47 @@
-﻿---
+---
 id: overview
 title: Overview
 sidebar_label: Overview
 sidebar_position: 1
 ---
 
-# Overview
+# WebShopX Player Guide
 
-## Issue Tracking
+This section is for regular players. It focuses on actions you perform in game or on the WebShopX site.
 
-- Issues repository: https://github.com/Prism-Committee/WebShopX-Issues
+## Start Here
 
-This player documentation works as a roadmap from beginner to advanced usage. Content is based on current version behavior.
+| Goal | Read |
+| --- | --- |
+| First web login | [Quick Start](./quick-start) |
+| Buy items, view orders, refund | [Shop, Market, and Orders](./shop-and-orders) |
+| Check balances, exchange, recharge | [Wallet and Exchange](./wallet-and-exchange) |
+| View web inventory or start a trade | [Web Inventory](./inventory) |
+| Claim pending deliveries or mailbox items | [Claim and Mailbox](./claim-and-mailbox) |
+| Use auctions | [Auctions](./auctions) |
+| Understand dynamic pricing | [Dynamic Pricing](./dynamic-pricing) |
+| Troubleshoot listing rejection | [Listing Limits](./limits) and [FAQ](./faq) |
+| Look up terminology | [Glossary](./glossary) |
 
-:::tip[Guide]
-Great for regular players: feature explanations, usage tutorials, FAQs, and terminology.
-:::
-
-## Which Page Should You Read First?
-
-| Your Goal | Start Here | What You Get |
-| --- | --- | --- |
-| First-time use | [Quick Start](./quick-start) | Login, password, and basic actions |
-| Check balance / exchange | [Wallet and Exchange](./wallet-and-exchange) | Dual-currency model, exchange flow, common errors |
-| Buy items, place orders, check orders | [Official Shop, Player Market, and Orders](./shop-and-orders) | Purchase flow, order states, delivery, and refunds |
-| Claim failed orders or redelivered items | [Claim and Mailbox](./claim-and-mailbox) | Correct usage of `claim` and mailbox claiming |
-| Understand auctions | [Auctions](./auctions) | Four auction modes and practical differences |
-| Understand price changes | [Dynamic Pricing](./dynamic-pricing) | Why prices rise/fall and how algorithms feel in practice |
-| Investigate listing rejection / trade failure | [Listing Limits](./limits) + [FAQ](./faq) | Error code meanings and troubleshooting sequence |
-| Learn underlying mechanics | [Algorithm](./algorithm) | Core logic behind dynamic pricing and auction systems |
-| Don't understand terms | [Glossary](./glossary) | Quick lookup of common terms |
-
-## Common Commands Quick Reference
+## Common Commands
 
 ```text
-/ws help
+/ws
+/ws home
 /ws password <newPassword>
-/ws market
-/ws market gui
 /ws market sell <price> [amount] [currency]
 /ws market logs [count]
 /ws claim [all|ODR-|MKT-|CLM-|MCL-]
-/ws mailbox claim
+/ws mailbox
+/ws mailbox collect
 ```
 
-## 4 Things New Players Most Often Miss
+Full command and permission details are maintained in the administrator/reference documentation rather than duplicated here.
 
-:::warning[Remember These 4 First]
-1. Set your web password in game first: `/ws password <newPassword>`.
-2. Wallet is dual-currency: `SHOP_COIN` and `GAME_COIN`.
-3. Auto-delivery failure becomes `WAIT_CLAIM`, and you must `claim` manually.
-4. If inventory is full, items go to mailbox; use `/ws mailbox claim` to retrieve.
-:::
+## Feature Status
 
-## Fast Navigation Recommendations
+- **Stable**: intended for normal use.
+- **Beta**: usable, but behavior or UI may still change.
+- **Experimental**: may be disabled by default or have explicit risks/limitations.
 
-- To finish your first trade quickly: read `Quick Start -> Wallet and Exchange -> Official Shop, Player Market, and Orders`.
-- To reduce trading mistakes: read `Listing Limits` and `FAQ` first.
-- To improve trading strategy: then read `Auctions`, `Dynamic Pricing`, and `Algorithm`.
-
+Offline playerdata writes are experimental. Whether they are available is controlled by the server administrator.
