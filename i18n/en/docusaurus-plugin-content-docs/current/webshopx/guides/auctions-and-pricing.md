@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Auctions, Dynamic Pricing, and Trading Rules
 
-This page combines three closely related player questions: how auctions settle, why prices move, and why a listing can be rejected.
+Three closely related player questions are covered together: how auctions settle, why prices move, and why a listing can be rejected.
 
 ## Trading modes
 
