@@ -25,7 +25,7 @@ Current official service panel: **[Open the WebShopX Relay service panel](https:
 The panel is used for account access, service activation, project management, server binding, redemption, and usage information. Available pages, plans, and entitlements may change; always follow what the panel currently shows.
 :::
 
-This page only documents the server-owner workflow and intentionally does not describe Relay server internals.
+Public documentation covers only the server-owner workflow and does not expose Relay server internals.
 
 ## When to use Relay
 
