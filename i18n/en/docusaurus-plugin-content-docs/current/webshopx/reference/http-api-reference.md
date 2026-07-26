@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # HTTP API Reference
 
-This page centralizes protocol conventions shared by all WebShopX API clients.
+Shared protocol conventions for all WebShopX API clients are collected here.
 
 ## Service and health
 
@@ -58,7 +58,7 @@ Use a stable `idempotencyKey` for wallet exchange, order creation, market purcha
 - currencies: `SHOP_COIN`, `GAME_COIN`
 - market side: `SELL`, `BUY`
 - trade mode: `DIRECT`, `AUCTION`
-- supply mode: `MANUAL`, `SUPPLY`
+- source mode: `MANUAL`, `SUPPLY`
 - auctions: `ENGLISH_AUCTION_V1`, `DUTCH_AUCTION_V1`, `VICKREY_AUCTION_V1`, `CANDLE_AUCTION_V1`
 
 ## Uploads
