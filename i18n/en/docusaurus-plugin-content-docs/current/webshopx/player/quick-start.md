@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # Quick Start
 
-Use this page to set your WebShopX password and enter the web shop.
+Set your WebShopX password in game, then open the web shop.
 
 ## First Login
 
