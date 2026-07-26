@@ -6,7 +6,6 @@ Prism-Committee 的统一文档站，基于 [Docusaurus](https://docusaurus.io/)
 
 - **WebShopX**：玩家指南、安装部署、服务器管理、Relay、公用 API 与开发参考；
 - **WebShopX-Payments**：支付扩展的安装、支付渠道配置与 Provider 开发资料；
-- **中文 / English** 双语文档。
 
 ## 本地运行
 
@@ -35,23 +34,7 @@ npm run start -- --locale en
 npm run build
 ```
 
-## 文档结构
-
-WebShopX 文档采用任务优先的信息架构：
-
-```text
-WebShopX
-├── Overview
-├── Get started
-├── Guides
-├── Administration
-├── Development
-└── Reference
-```
-
-较深入的专题仍保留在折叠分组中，避免主导航过度碎片化。
-
-主要目录：
+## 主要目录：
 
 ```text
 docs/                         中文文档
@@ -62,19 +45,10 @@ sidebars.ts                   文档侧栏结构
 docusaurus.config.ts          Docusaurus 配置
 ```
 
-## 文档原则
-
-- 以当前实现和随版本发布的配置为事实源；
-- Guides 解决任务，Reference 用于精确查阅；
-- 对高风险或实验性能力明确标注边界；
-- 中英文核心入口和主要文档尽量同步；
-- 视觉增强服务于阅读，不替代正文结构。
-
 ## 相关项目
 
-- [WebShopX](https://github.com/Cc-Cece/WebShopX)
+- [WebShopX](https://github.com/Prism-Committee/WebShopX-Issues)
 - [WebShopX-Payments](https://github.com/Prism-Committee/WebShopX-Payments)
-- [WebShopX Issues / 文档反馈](https://github.com/Prism-Committee/WebShopX-Issues)
 
 ## 贡献
 
