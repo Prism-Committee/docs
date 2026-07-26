@@ -48,7 +48,21 @@ WebShopX serves the API while static files are hosted by Nginx/CDN or another we
 
 ### `relay`
 
-WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not need to expose the Web port directly. Prefer the in-game Relay setup workflow and keep the access key secret.
+WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not need to expose the web port directly.
+
+Current official service panel: **[https://47.122.127.164/](https://47.122.127.164/)**.
+
+For a first setup, sign in to the official panel and make sure a usable project is available, then run:
+
+```text
+/ws mode setup relay
+/ws mode switch relay
+/ws home
+```
+
+`/ws mode setup relay` opens a secure authorization page and WebShopX stores the required Relay credential when authorization completes. If the Relay panel shows a pending server, associate it with the intended project before validating `/ws home`.
+
+See [Relay Public Access](./relay-access) for account, project, binding, security, and troubleshooting guidance.
 
 ## SQLite
 
