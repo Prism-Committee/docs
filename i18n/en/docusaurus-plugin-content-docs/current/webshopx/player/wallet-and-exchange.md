@@ -7,19 +7,12 @@ sidebar_position: 3
 
 # Wallet and Exchange
 
-WebShopX uses a dual-currency wallet. After reading this page, you will know how balances increase, how exchange works, and why it can fail.
-
-:::info[In This Page]
-- Dual-currency model and balance reading
-- Exchange direction and formula
-- Vault economy integration behavior
-- Typical error-code troubleshooting
-:::
+WebShopX uses a dual-currency wallet with balance viewing, exchange, and optional Vault economy integration.
 
 ## 1. Dual-Currency Model
 
 :::tip[Tip]
-The currencies on this page are default currencies. If your server uses different names, follow your server settings; the process still applies.
+The currencies below are defaults. If your server uses different names, follow the server's actual configuration.
 :::
 
 | Currency | Symbol | Description |
