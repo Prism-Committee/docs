@@ -84,7 +84,7 @@ database:
 ## 5. 选择部署模式
 
 <Tabs groupId="webshopx-deployment-mode">
-  <TabItem value="internal" label="internal" default>
+<TabItem value="internal" label="internal" default>
 
 插件同时提供 API 与静态网页，最适合快速部署。
 
@@ -99,8 +99,8 @@ webshop:
 
 公网部署时建议通过 Nginx / CDN 提供 HTTPS，而不是直接暴露未加密的管理入口。
 
-  </TabItem>
-  <TabItem value="external" label="external">
+</TabItem>
+<TabItem value="external" label="external">
 
 插件只提供 API，前端静态文件交给 Nginx / CDN 等外部服务。
 
@@ -112,8 +112,8 @@ webshop:
 
 `public-api-url` 应填写完整 API 根地址，并包含 `/api`。
 
-  </TabItem>
-  <TabItem value="relay" label="relay">
+</TabItem>
+<TabItem value="relay" label="relay">
 
 Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay，由 Relay 为对应项目提供公网商城入口。
 
@@ -138,7 +138,7 @@ Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口�
 
 套餐价格和额度可能调整，开通或购买前应以面板实时显示为准。完整的账号、项目、绑定、套餐、安全与排障说明见 [Relay 公网访问](./relay-access.md)。
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## 6. 管理后台入口
