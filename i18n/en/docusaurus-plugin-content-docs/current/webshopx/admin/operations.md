@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Operations and Troubleshooting
 
-This page covers common post-deployment operations: delivery failures, refunds, inventory risks, backups, upgrades, logs, and cluster/Relay checks.
+Common post-deployment work includes delivery failures, refunds, inventory risks, backups, upgrades, logs, and cluster/Relay checks.
 
 ## Operational baseline
 
