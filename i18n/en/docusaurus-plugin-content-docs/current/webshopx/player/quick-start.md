@@ -7,48 +7,34 @@ sidebar_position: 2
 
 # Quick Start
 
-Goal of this page is simple: prepare your account and enter WebShopX successfully in 3 minutes.
+Use this page to set your WebShopX password and enter the web shop.
 
-:::info[In This Page]
-- Part 1: 3 steps before first login
-- Part 2: Account and password rules (validated in source code)
-- Part 3: Session and common errors
-:::
+## First Login
 
-## 1. First Login
-
-1. Run this in game:
+1. In game, run:
 
 ```text
 /ws password <yourNewPassword>
 ```
 
-2. Log in to the web page with the same account (default is your Minecraft username) and that password.
+2. Run `/ws home` to get the web-shop address configured by the server owner.
+3. Log in with your Minecraft identity and the password you just set.
 
-## 2. Commands
+## Common Problems
 
-```text
-/ws market
-/ws claim
-/ws mailbox claim
-```
-
-## 3. Common Errors and Fixes
-
-| Error Code | Meaning | Suggested Fix |
+| Error | Meaning | What to do |
 | --- | --- | --- |
-| `invalid_username` | Invalid username format | Check length and characters (letters/numbers/underscore) |
-| `invalid_password` | Invalid password length | Change to 8-64 characters |
-| `username_exists` | Username conflict | Use another username and retry |
-| `invalid_credentials` | Wrong login credentials | Verify account, password, and case |
-| `auth_invalid` | Session expired/invalid | Log in again for a new token |
+| `invalid_password` | Password does not meet current rules | Choose a valid password and retry |
+| `invalid_credentials` | Login credentials are wrong | Recheck identity, password, and case |
+| `auth_invalid` | Session expired or is no longer valid | Log in again |
 
-<details>
-  <summary>Recommended Troubleshooting Order</summary>
+:::tip
+Do not treat old registration-oriented errors such as `username_exists` as part of the normal v3 player flow. The current onboarding path starts with `/ws password` in game.
+:::
 
-1. Confirm you already ran `/ws password` in game.
-2. Confirm password length is between 8 and 64.
-3. If web session is invalid, fully log out and log in again.
+## After Login
 
-</details>
-
+- Shop and orders: [Shop, Market, and Orders](./shop-and-orders)
+- Balance and exchange: [Wallet and Exchange](./wallet-and-exchange)
+- Pending deliveries: [Claim and Mailbox](./claim-and-mailbox)
+- Web inventory: [Web Inventory](./inventory)
