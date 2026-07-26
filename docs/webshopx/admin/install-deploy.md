@@ -5,9 +5,19 @@ sidebar_label: 安装与部署
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
+
 # 安装与部署
 
-本页用于完成 WebShopX 的首次安装，并选择合适的 Web 部署模式。
+<DocHero
+  eyebrow="Get started"
+  title="安装 WebShopX，并选择合适的 Web 部署模式"
+  description="本页用于完成首次安装、数据库准备与 Web 模式选择。第一次体验优先使用 SQLite + internal；需要公网托管时再考虑 relay。"
+  primary={{label: '最快部署', to: '#3-最快部署sqlite--internal'}}
+  secondary={{label: 'Relay 公网访问', to: './relay-access'}}
+/>
 
 ## 1. 环境要求
 
@@ -49,7 +59,7 @@ sidebar_position: 2
 http://<服务器地址>:8819/
 ```
 
-:::warning
+:::warning[首次管理员账号]
 首次管理员引导账号默认为 `admin / admin123456`。首次成功登录后台后，请立即创建正式管理员并关闭或修改 `webshop.admin-bootstrap`。
 :::
 
@@ -67,11 +77,14 @@ database:
   password: change_me
 ```
 
+:::warning
 生产环境不要使用示例密码，也不要把真实凭据提交到公开仓库。
+:::
 
 ## 5. 选择部署模式
 
-### `internal`
+<Tabs groupId="webshopx-deployment-mode">
+  <TabItem value="internal" label="internal" default>
 
 插件同时提供 API 与静态网页，最适合快速部署。
 
@@ -86,7 +99,8 @@ webshop:
 
 公网部署时建议通过 Nginx / CDN 提供 HTTPS，而不是直接暴露未加密的管理入口。
 
-### `external`
+  </TabItem>
+  <TabItem value="external" label="external">
 
 插件只提供 API，前端静态文件交给 Nginx / CDN 等外部服务。
 
@@ -98,7 +112,8 @@ webshop:
 
 `public-api-url` 应填写完整 API 根地址，并包含 `/api`。
 
-### `relay`
+  </TabItem>
+  <TabItem value="relay" label="relay">
 
 Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay，由 Relay 为对应项目提供公网商城入口。
 
@@ -122,6 +137,9 @@ Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口�
 `/ws mode setup relay` 会打开安全授权页面；授权完成后 WebShopX 会保存所需 Relay 凭据。若面板出现待绑定服务器，请在面板中将它关联到正确项目，再验证 `/ws home`。
 
 套餐价格和额度可能调整，开通或购买前应以面板实时显示为准。完整的账号、项目、绑定、套餐、安全与排障说明见 [Relay 公网访问](./relay-access.md)。
+
+  </TabItem>
+</Tabs>
 
 ## 6. 管理后台入口
 
@@ -150,8 +168,10 @@ v3 中应从 WebShopX 站点登录后进入管理后台。`/admin.html` 仅用�
 
 ## 9. 相关文档
 
-- [配置](./configuration)
-- [Relay 公网访问](./relay-access)
-- [命令与权限体系](./commands-permissions)
-- [v2 → v3 迁移](./v2-to-v3-migration)
-- [运维排障](./faq)
+<FeatureCards items={[
+  {icon: '⚙️', title: '配置', description: '继续查看数据库、Web 模式、集群等运行参数。', to: './configuration'},
+  {icon: '🌐', title: 'Relay 公网访问', description: '查看官方 Relay 面板、套餐、授权和绑定完整教程。', to: './relay-access'},
+  {icon: '⌨️', title: '命令与权限体系', description: '查询安装后可用命令和管理员权限。', to: './commands-permissions'},
+  {icon: '⬆️', title: 'v2 → v3 迁移', description: '旧版本升级时确认迁移步骤和兼容边界。', to: './v2-to-v3-migration'},
+  {icon: '🛠️', title: '运维排障', description: '上线后遇到运行问题时继续排查。', to: './faq'},
+]} />
