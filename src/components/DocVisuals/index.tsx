@@ -1,6 +1,22 @@
 import React, {type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
+import {useLocation} from '@docusaurus/router';
 import styles from './styles.module.css';
+
+function resolveDocLink(to: string, pathname: string): string {
+  if (!to.startsWith('./') && !to.startsWith('../')) {
+    return to;
+  }
+
+  const currentPath = pathname.endsWith('/') && pathname !== '/'
+    ? pathname.slice(0, -1)
+    : pathname;
+  const lastSlash = currentPath.lastIndexOf('/');
+  const documentDirectory = currentPath.slice(0, lastSlash + 1) || '/';
+  const resolved = new URL(to, `https://docusaurus.local${documentDirectory}`);
+
+  return `${resolved.pathname}${resolved.search}${resolved.hash}`;
+}
 
 export type FeatureCardItem = {
   title: string;
@@ -11,6 +27,8 @@ export type FeatureCardItem = {
 };
 
 export function FeatureCards({items}: {items: FeatureCardItem[]}) {
+  const {pathname} = useLocation();
+
   return (
     <div className={styles.featureGrid}>
       {items.map((item) => {
@@ -26,7 +44,7 @@ export function FeatureCards({items}: {items: FeatureCardItem[]}) {
         );
 
         return item.to ? (
-          <Link key={item.title} className={styles.featureCard} to={item.to}>
+          <Link key={item.title} className={styles.featureCard} to={resolveDocLink(item.to, pathname)}>
             {body}
           </Link>
         ) : (
@@ -57,6 +75,8 @@ export function ProjectPanel({
   links?: ProjectLink[];
   children: ReactNode;
 }) {
+  const {pathname} = useLocation();
+
   return (
     <section className={styles.projectPanel}>
       <div className={styles.projectHeader}>
@@ -70,7 +90,10 @@ export function ProjectPanel({
         {links?.length ? (
           <div className={styles.projectLinks}>
             {links.map((link) => (
-              <Link className={styles.projectLink} to={link.to} key={`${link.label}-${link.to}`}>
+              <Link
+                className={styles.projectLink}
+                to={resolveDocLink(link.to, pathname)}
+                key={`${link.label}-${link.to}`}>
                 {link.label}
               </Link>
             ))}
@@ -156,6 +179,8 @@ export function DocHero({
   primary?: {label: string; to: string};
   secondary?: {label: string; to: string};
 }) {
+  const {pathname} = useLocation();
+
   return (
     <div className={styles.hero}>
       {eyebrow ? <span className={styles.heroEyebrow}>{eyebrow}</span> : null}
@@ -163,8 +188,18 @@ export function DocHero({
       <p className={styles.heroDescription}>{description}</p>
       {(primary || secondary) ? (
         <div className={styles.heroActions}>
-          {primary ? <Link className="button button--primary" to={primary.to}>{primary.label}</Link> : null}
-          {secondary ? <Link className="button button--secondary button--outline" to={secondary.to}>{secondary.label}</Link> : null}
+          {primary ? (
+            <Link className="button button--primary" to={resolveDocLink(primary.to, pathname)}>
+              {primary.label}
+            </Link>
+          ) : null}
+          {secondary ? (
+            <Link
+              className="button button--secondary button--outline"
+              to={resolveDocLink(secondary.to, pathname)}>
+              {secondary.label}
+            </Link>
+          ) : null}
         </div>
       ) : null}
     </div>
