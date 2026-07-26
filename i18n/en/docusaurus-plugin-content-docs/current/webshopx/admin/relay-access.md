@@ -71,37 +71,10 @@ The following values reflect the current panel. Prices, durations, traffic, API 
 :::
 
 <PlanCards items={[
-  {
-    name: 'Trial',
-    price: '¥0',
-    period: '5 days',
-    description: 'Initial testing and validation',
-    badge: 'Once per user',
-    features: ['1 GB traffic per period', '100,000 API requests', '256 MB cache'],
-  },
-  {
-    name: 'Lite',
-    price: '¥6',
-    period: '30 days',
-    description: 'Low usage or small servers',
-    features: ['5 GB traffic per period', '200,000 API requests', '1 GB cache'],
-  },
-  {
-    name: 'Standard',
-    price: '¥10',
-    period: '30 days',
-    description: 'Stable medium-sized servers',
-    badge: 'Recommended',
-    highlighted: true,
-    features: ['10 GB traffic per period', '600,000 API requests', '1 GB cache'],
-  },
-  {
-    name: 'Advanced',
-    price: '¥20',
-    period: '30 days',
-    description: 'Higher traffic or more resources',
-    features: ['40 GB traffic per period', '3,000,000 API requests', '2 GB cache'],
-  },
+  {name: 'Trial', price: '¥0', period: '5 days', description: 'Initial testing and validation', badge: 'Once per user', features: ['1 GB traffic per period', '100,000 API requests', '256 MB cache']},
+  {name: 'Lite', price: '¥6', period: '30 days', description: 'Low usage or small servers', features: ['5 GB traffic per period', '200,000 API requests', '1 GB cache']},
+  {name: 'Standard', price: '¥10', period: '30 days', description: 'Stable medium-sized servers', badge: 'Recommended', highlighted: true, features: ['10 GB traffic per period', '600,000 API requests', '1 GB cache']},
+  {name: 'Advanced', price: '¥20', period: '30 days', description: 'Higher traffic or more resources', features: ['40 GB traffic per period', '3,000,000 API requests', '2 GB cache']},
 ]} />
 
 :::tip
@@ -111,22 +84,10 @@ For a first setup, claim the 5-day trial, complete the Relay integration test, a
 ## Recommended setup
 
 <Steps items={[
-  {
-    title: 'Prepare your Relay account and service',
-    children: <>Open the <a href="https://47.122.127.164/">official Relay panel</a> and register or sign in. Open Activate Service, claim the one-time 5-day trial or purchase a plan directly. If you have a redemption code, you can redeem it instead. Confirm that a usable project or service instance exists under the account.</>,
-  },
-  {
-    title: 'Start authorization in game',
-    children: <>Join the server with an account that has <code>webshop.admin</code>, then run <code>/ws mode setup relay</code>. WebShopX returns a secure authorization link; open it, sign in to the Relay account, confirm authorization, and return to Minecraft.</>,
-  },
-  {
-    title: 'Check the server-project relationship',
-    children: <>Open the Relay panel and review the project. If a pending server appears or the panel asks you to select a project, associate the current WebShopX server with the intended project. Be careful when multiple servers or projects exist under one account.</>,
-  },
-  {
-    title: 'Switch to Relay and verify',
-    children: <>Run <code>/ws mode switch relay</code> and then <code>/ws home</code>. If the expected public shop opens, the basic Relay setup is complete.</>,
-  },
+  {title: 'Prepare your Relay account and service', children: <>Open the <a href="https://47.122.127.164/">official Relay panel</a> and register or sign in. Open Activate Service, claim the one-time 5-day trial or purchase a plan directly. If you have a redemption code, you can redeem it instead. Confirm that a usable project or service instance exists under the account.</>},
+  {title: 'Start authorization in game', children: <>Join the server with an account that has <code>webshop.admin</code>, then run <code>/ws mode setup relay</code>. WebShopX returns a secure authorization link; open it, sign in to the Relay account, confirm authorization, and return to Minecraft.</>},
+  {title: 'Check the server-project relationship', children: <>Open the Relay panel and review the project. If a pending server appears or the panel asks you to select a project, associate the current WebShopX server with the intended project. Be careful when multiple servers or projects exist under one account.</>},
+  {title: 'Switch to Relay and verify', children: <>Run <code>/ws mode switch relay</code> and then <code>/ws home</code>. If the expected public shop opens, the basic Relay setup is complete.</>},
 ]} />
 
 :::warning[Do not share authorization information]
@@ -138,7 +99,7 @@ After successful authorization, WebShopX stores the required Relay credential an
 ## Day-to-day management
 
 <Tabs groupId="relay-management">
-  <TabItem value="webshopx" label="Minecraft / WebShopX" default>
+<TabItem value="webshopx" label="Minecraft / WebShopX" default>
 
 Use it for:
 
@@ -146,8 +107,8 @@ Use it for:
 - opening the current shop URL;
 - managing WebShopX products, orders, market functions, and administrators.
 
-  </TabItem>
-  <TabItem value="relay" label="Relay service panel">
+</TabItem>
+<TabItem value="relay" label="Relay service panel">
 
 Use it for:
 
@@ -158,7 +119,7 @@ Use it for:
 - expiration, traffic, request counts, cache capacity, and other entitlements;
 - renewal, upgrades, and project-level hosting operations.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 > The Relay panel manages **public hosting and project relationships**. The WebShopX admin panel manages **shop business data**.
