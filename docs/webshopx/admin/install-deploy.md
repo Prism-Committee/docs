@@ -100,9 +100,11 @@ webshop:
 
 ### `relay`
 
-Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay。
+Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay，由 Relay 为对应项目提供公网商城入口。
 
-推荐使用游戏内命令完成授权：
+当前官方服务面板：**[https://47.122.127.164/](https://47.122.127.164/)**。
+
+首次使用时，建议先在官方面板注册/登录并准备好可用项目，然后在游戏内执行：
 
 ```text
 /ws mode setup relay
@@ -110,7 +112,9 @@ Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口�
 /ws home
 ```
 
-完整说明见 [Relay 公网访问](./relay-access.md)。
+`/ws mode setup relay` 会打开安全授权页面；授权完成后 WebShopX 会保存所需 Relay 凭据。若面板出现待绑定服务器，请在面板中将它关联到正确项目，再验证 `/ws home`。
+
+完整的账号、项目、绑定、安全与排障说明见 [Relay 公网访问](./relay-access.md)。
 
 ## 6. 管理后台入口
 
@@ -140,6 +144,7 @@ v3 中应从 WebShopX 站点登录后进入管理后台。`/admin.html` 仅用�
 ## 9. 相关文档
 
 - [配置](./configuration)
+- [Relay 公网访问](./relay-access)
 - [命令与权限体系](./commands-permissions)
 - [v2 → v3 迁移](./v2-to-v3-migration)
 - [运维排障](./faq)
