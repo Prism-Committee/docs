@@ -31,7 +31,7 @@ function HomepageHeader() {
             <Link className="button button--secondary button--outline button--lg" to="/webshopx/overview">
               WebShopX
             </Link>
-            <Link className={styles.textLink} href="https://github.com/Prism-Committee">
+            <Link className={styles.textLink} href="https://github.com/Prism-Committee/docs">
               GitHub <span aria-hidden="true">↗</span>
             </Link>
           </div>
