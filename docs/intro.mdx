@@ -2,45 +2,57 @@
 sidebar_position: 1
 ---
 
-import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
+import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
 
 # Prism-Committee 文档
 
 <DocHero
-  eyebrow="Prism-Committee"
-  title="从这里开始使用我们的项目"
-  description="这里是 Prism-Committee 的统一文档入口。选择项目或当前要完成的任务，即可进入对应教程、管理文档、开发文档与参考资料。"
-  primary={{label: '进入 WebShopX', to: './webshopx/overview'}}
-  secondary={{label: 'WebShopX-Payments', to: './webshopx-payments/overview'}}
+  eyebrow="Prism-Committee Docs"
+  title="从一个项目，或一件要完成的事开始"
+  description="Prism-Committee 的统一文档入口。这里集中提供 WebShopX 与相关项目的使用指南、服务器管理、开发集成和参考资料。"
+  primary={{label: '开始使用 WebShopX', to: './webshopx/overview'}}
+  secondary={{label: '查看支付扩展', to: './webshopx-payments/overview'}}
 />
 
-## WebShopX
-
-**WebShopX** 是面向 Paper、Purpur、Spigot 与 Folia 服务端的 Web 商城系统，包含官方商城、玩家市场、钱包、订单与发货、充值和管理后台。
-
-**项目与下载：** [GitHub 源码](https://github.com/Cc-Cece/WebShopX) · [Modrinth](https://modrinth.com/plugin/webshopx) · [MineBBS](https://www.minebbs.com/resources/x-folia-webshopx.15688/)
+<ProjectPanel
+  icon="🛍️"
+  title="WebShopX"
+  description="面向 Paper、Purpur、Spigot 与 Folia 服务端的 Web 商城系统，包含官方商城、玩家市场、钱包、订单与发货、充值和管理后台。"
+  links={[
+    {label: 'GitHub 源码 ↗', to: 'https://github.com/Cc-Cece/WebShopX'},
+    {label: 'Modrinth ↗', to: 'https://modrinth.com/plugin/webshopx'},
+    {label: 'MineBBS ↗', to: 'https://www.minebbs.com/resources/x-folia-webshopx.15688/'},
+  ]}>
 
 <FeatureCards items={[
-  {icon: '🧭', title: 'WebShopX Overview', description: '查看 WebShopX 的完整文档地图和推荐入口。', to: './webshopx/overview', badge: 'Overview'},
-  {icon: '👋', title: '玩家快速开始', description: '设置网页登录密码并第一次打开 WebShopX。', to: './webshopx/player/quick-start'},
-  {icon: '🚀', title: '安装与部署', description: '安装插件并选择 internal、external 或 relay。', to: './webshopx/admin/install-deploy', badge: 'Get started'},
+  {icon: '🧭', title: 'WebShopX Overview', description: '先了解 WebShopX，并找到适合自己的文档入口。', to: './webshopx/overview', badge: '推荐入口'},
+  {icon: '👋', title: '玩家快速开始', description: '设置网页登录密码，并第一次打开 WebShopX。', to: './webshopx/player/quick-start'},
+  {icon: '🚀', title: '安装与部署', description: '安装插件，并选择 internal、external 或 relay。', to: './webshopx/admin/install-deploy', badge: 'Get started'},
   {icon: '🛒', title: '使用指南', description: '购买、交易、钱包、背包、领取、拍卖和动态价格。', to: './webshopx/guides/overview'},
   {icon: '🛠️', title: '服务器管理', description: '配置、市场治理、运维和故障处理。', to: './webshopx/admin/overview'},
   {icon: '💻', title: '开发', description: '从 Developer Quickstart 开始接入 HTTP API 或插件能力。', to: './webshopx/developer/quickstart'},
   {icon: '📚', title: 'Reference', description: '查询命令、权限、错误码、配置和精确协议行为。', to: './webshopx/reference/overview'},
 ]} />
 
-## WebShopX-Payments
+</ProjectPanel>
 
-**WebShopX-Payments** 是 WebShopX 的独立支付扩展插件，用于接入具体支付渠道。
-
-**项目与下载：** [GitHub](https://github.com/Prism-Committee/WebShopX-Payments) · [Modrinth](https://modrinth.com/plugin/wsxpay) · [MineBBS](https://www.minebbs.com/resources/x-folia-webshopx-payments-webshopx.16526/)
+<ProjectPanel
+  icon="💳"
+  title="WebShopX-Payments"
+  description="WebShopX 的独立支付扩展插件，用于接入具体支付渠道，也可以作为第三方支付 Provider 的参考实现。"
+  links={[
+    {label: 'GitHub ↗', to: 'https://github.com/Prism-Committee/WebShopX-Payments'},
+    {label: 'Modrinth ↗', to: 'https://modrinth.com/plugin/wsxpay'},
+    {label: 'MineBBS ↗', to: 'https://www.minebbs.com/resources/x-folia-webshopx-payments-webshopx.16526/'},
+  ]}>
 
 <FeatureCards items={[
-  {icon: '💳', title: 'WebShopX-Payments 文档', description: '安装支付扩展并配置可用支付渠道。', to: './webshopx-payments/overview'},
+  {icon: '💳', title: 'WebShopX-Payments 文档', description: '安装支付扩展，并配置可用支付渠道。', to: './webshopx-payments/overview', badge: 'Payments'},
   {icon: '🧩', title: 'WebShopXPaymentApi', description: '为 WebShopX 开发第三方支付 Provider。', to: './webshopx/webshopx-payment-api'},
 ]} />
 
-## 反馈
+</ProjectPanel>
 
-WebShopX 与文档问题请提交到 [Prism-Committee/WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues)。
+:::info[反馈与问题]
+WebShopX 与文档问题统一提交到 [Prism-Committee/WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues)。
+:::
