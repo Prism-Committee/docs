@@ -52,7 +52,14 @@ WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not nee
 
 Current official service panel: **[https://47.122.127.164/](https://47.122.127.164/)**.
 
-For a first setup, sign in to the official panel and make sure a usable project is available, then run:
+Each user can claim one **5-day free trial**. Users may also purchase a plan directly from the panel or activate service with an eligible redemption code. For additional trial time, join QQ group `636803372` and follow the current trial instructions.
+
+Recommended first setup:
+
+1. Register or sign in to the official panel.
+2. Claim the free trial, purchase a plan, or redeem a code.
+3. Confirm that a usable project exists under the account.
+4. Run:
 
 ```text
 /ws mode setup relay
@@ -62,7 +69,7 @@ For a first setup, sign in to the official panel and make sure a usable project 
 
 `/ws mode setup relay` opens a secure authorization page and WebShopX stores the required Relay credential when authorization completes. If the Relay panel shows a pending server, associate it with the intended project before validating `/ws home`.
 
-See [Relay Public Access](./relay-access) for account, project, binding, security, and troubleshooting guidance.
+Plan prices and allowances may change, so confirm the current values in the panel before activation or purchase. See [Relay Public Access](./relay-access) for account, project, binding, plans, security, and troubleshooting guidance.
 
 ## SQLite
 
