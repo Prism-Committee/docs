@@ -1,53 +1,47 @@
-﻿---
+---
 id: overview
 title: Overview
 sidebar_label: Overview
 sidebar_position: 1
 ---
 
-# WebShopX Server Owner Docs
+# WebShopX Server Administrator Guide
 
-## Issue Tracking
+This section is for plugin installers, server operators, and WebShopX administrators.
 
-- Issues repository: https://github.com/Prism-Committee/WebShopX-Issues
+## Recommended Reading Path
 
-This section is for plugin installers, operators, and admin-panel managers.
-
-:::info[Reading Map]
 1. [Install and Deploy](./install-deploy)
-2. [Configuration and Runtime Parameters](./configuration)
-3. [Commands and Permission System](./commands-permissions)
-4. [Market Governance and Risk Control](./governance)
-5. [Delivery, Claim, and Refund Operations](./delivery-refund-ops)
-6. [Operations Troubleshooting FAQ](./faq)
-:::
+2. [Configuration](./configuration)
+3. [Commands and Permissions](./commands-permissions)
+4. [Relay Access](./relay-access)
+5. [Market Governance](./market-governance)
+6. [Inventory Operations](./inventory-operations)
+7. [Delivery and Refund Operations](./delivery-and-refund-ops)
+8. [v2 to v3 Migration](./v2-to-v3-migration)
+9. [FAQ](./faq)
 
-## WebShopX Topology at a Glance
+## Deployment Components
 
-| Component | Description |
+| Component | Purpose |
 | --- | --- |
-| Plugin Process | Built-in API service, can optionally host static pages |
-| MySQL/MariaDB | Core business data storage |
-| Vault (Optional) | `GAME_COIN` economy integration |
-| Redis (Optional) | Cluster config refresh and market broadcast |
+| WebShopX plugin | Core business logic, HTTP API, optional built-in web UI |
+| SQLite | Default single-server database; requires `cluster.role=standalone` |
+| MySQL / MariaDB | Recommended for production or multi-server deployments |
+| Vault (optional) | Connects `GAME_COIN` to the game economy |
+| Redis (optional) | Cluster config refresh and market broadcast |
+| WebShopX Relay (optional) | Public access without exposing the server web port directly |
+| WebShopX-Payments (optional) | Online payment-channel extension |
 
-## Risks You Should Prioritize First
+## High-Priority Checks
 
-:::warning[High-Risk Configuration Reminder]
-1. Do not keep placeholder database values (`127.0.0.1:3306/webshop/webshop/change_me`), or the plugin will refuse to start.
-2. In production, replace the initial `admin-bootstrap` password immediately after first startup.
-3. In cluster mode, `cluster.role=node` will not start Web/API. This is expected by design.
-:::
+1. Replace or disable the default `admin-bootstrap` account after first login.
+2. Never expose database, Relay, or payment credentials in public repositories or screenshots.
+3. SQLite is standalone-only.
+4. Use HTTPS and a reverse proxy for public deployments.
+5. Offline playerdata writes are experimental and should stay disabled unless explicitly required and tested.
+6. Back up both the database and `plugins/WebShopX/` before upgrades.
 
-## Recommended Operations Rhythm
+## Configuration Responsibility
 
-1. First, make sure "can start, can log in, can place orders" works.
-2. Then tune fees, limitation rules, and broadcast strategy.
-3. Finally run high-concurrency and failure-scenario regression (refund, claim, restock, cluster sync).
-
-## SQLite Deployment Scope (New)
-
-- Best for single-node, lightweight deployments.
-- Not suitable for multi-node cluster roles (`master/node`).
-- With SQLite, `cluster.role` must stay `standalone`.
-
+In v3, `config.yml` mainly stores local deployment, security, database, and cluster parameters. Business rules such as market fees, currencies, and leaderboard settings should normally be managed in the web admin panel instead of duplicated in local YAML.
