@@ -1,5 +1,6 @@
 ---
 id: developer-quickstart
+slug: /webshopx/developer/quickstart
 title: Developer Quickstart
 sidebar_label: Developer Quickstart
 sidebar_position: 1
