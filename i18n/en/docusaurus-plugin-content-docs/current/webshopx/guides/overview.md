@@ -1,5 +1,6 @@
 ---
 id: guides-overview
+slug: /webshopx/guides/overview
 title: Guides
 sidebar_label: Guides
 sidebar_position: 1
