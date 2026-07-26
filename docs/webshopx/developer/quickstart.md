@@ -12,7 +12,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Development"
   title="完成你的第一次 WebShopX API 调用"
-  description="这页只解决最短接入路径：找到 API、确认健康状态、登录、完成一次读取和一次写入，然后知道下一步该看哪里。"
+  description="按最短接入路径完成 API 定位、健康检查、登录、一次读取和一次写入，再进入对应 API 专题。"
   primary={{label: 'HTTP API Reference', to: '../reference/http-api-reference'}}
   secondary={{label: 'Player API', to: './player-api'}}
 />
