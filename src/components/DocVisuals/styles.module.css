@@ -36,6 +36,93 @@
   margin-top: 1.15rem;
 }
 
+.projectPanel {
+  margin: 1.75rem 0;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 18px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .045);
+}
+
+.projectHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem 1.45rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: linear-gradient(135deg, var(--ifm-color-emphasis-100), transparent 72%);
+}
+
+.projectHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  min-width: 0;
+}
+
+.projectIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  font-size: 1.35rem;
+}
+
+.projectTitle {
+  margin: 0 0 .3rem;
+  font-size: 1.28rem;
+}
+
+.projectDescription {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .45rem;
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: .28rem .7rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-800);
+  font-size: .82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color .15s ease, color .15s ease, transform .15s ease;
+}
+
+.projectLink:hover {
+  transform: translateY(-1px);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.projectBody {
+  padding: .3rem 1.35rem .15rem;
+}
+
+.projectBody .featureGrid {
+  margin-bottom: 1.25rem;
+}
+
 .featureGrid,
 .planGrid {
   display: grid;
@@ -194,10 +281,32 @@
   margin-top: .32rem;
 }
 
+@media (max-width: 760px) {
+  .projectHeader {
+    flex-direction: column;
+  }
+
+  .projectLinks {
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 600px) {
   .hero {
     padding: 1.2rem;
     border-radius: 12px;
+  }
+
+  .projectPanel {
+    border-radius: 14px;
+  }
+
+  .projectHeader {
+    padding: 1.1rem;
+  }
+
+  .projectBody {
+    padding: .2rem 1rem 0;
   }
 
   .featureGrid,
