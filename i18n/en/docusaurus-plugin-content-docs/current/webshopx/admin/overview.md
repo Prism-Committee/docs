@@ -12,7 +12,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Administration"
   title="From first deployment to governance and operations"
-  description="This page remains for compatibility with older links. The primary navigation separates server-owner work into Get started and Administration."
+  description="Server-owner work is split into two stages: complete installation and deployment first, then move into configuration, governance, operations, and troubleshooting."
   primary={{label: 'Install and Deploy', to: './install-deploy'}}
   secondary={{label: 'Operations and Troubleshooting', to: './operations'}}
 />
@@ -37,4 +37,4 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 For exact commands, permissions, and HTTP protocol behavior, use [Reference](../reference/overview).
 :::
 
-Older Relay, inventory-operations, and delivery/refund topic pages remain under the Advanced topics sidebar group for deeper scenarios, while routine workflows stay consolidated in the main deployment and operations pages.
+Relay, inventory operations, and delivery/refund details are available under the **Advanced topics** sidebar group.
