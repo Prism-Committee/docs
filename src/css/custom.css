@@ -28,6 +28,41 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Documentation visual controls: keep native semantics while making
+ * progressive-disclosure blocks feel like part of the same design system. */
+.theme-doc-markdown details {
+  margin: 0.75rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+  overflow: hidden;
+}
+
+.theme-doc-markdown details > summary {
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.theme-doc-markdown details[open] > summary {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.theme-doc-markdown details > :not(summary) {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.theme-doc-markdown details > :last-child {
+  margin-bottom: 1rem;
+}
+
+.theme-doc-markdown .tabs-container {
+  margin: 1rem 0 1.6rem;
+}
+
 /* Optional chrome-free layout for embedded pages.
  * ?hideNavbar=1 hides only the navbar.
  * ?hideFooter=1 hides only the footer.
