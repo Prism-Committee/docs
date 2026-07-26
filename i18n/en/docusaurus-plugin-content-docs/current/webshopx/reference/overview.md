@@ -39,5 +39,3 @@ When documentation conflicts with a specific release:
 2. Reference documentation.
 3. Task-oriented Guides / Administration / Development pages.
 4. README files, old screenshots, or third-party tutorials.
-
-Reference pages should prioritize exact names, parameters, states, defaults, searchable tables, and compatibility notes rather than repeating task tutorials.
