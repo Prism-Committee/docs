@@ -7,7 +7,7 @@ sidebar_position: 4
 
 # Payment Solutions
 
-This page summarizes the payment solutions currently supported or implemented in `WebShopX-Payments`, helping you quickly evaluate their availability and integration priority.
+`WebShopX-Payments` currently supports or implements the following payment solutions, which can be used to evaluate availability and integration priority.
 
 | **Status** | **Platform** | **Solution** | **Description** |
 | --- | --- | --- | --- |
