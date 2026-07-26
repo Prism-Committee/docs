@@ -7,7 +7,7 @@ sidebar_position: 12
 
 # Glossary
 
-This page organizes high-frequency terms by concept domain, which is usually faster than pure alphabetical lookup during troubleshooting.
+High-frequency terms are grouped by concept domain for faster troubleshooting lookup.
 
 ## 1. Trading and Listings
 
@@ -92,4 +92,3 @@ This page organizes high-frequency terms by concept domain, which is usually fas
 | --- | --- |
 | `vault_unavailable` | Vault or economy provider unavailable |
 | `vault_error` | Vault read/write call failed |
-
