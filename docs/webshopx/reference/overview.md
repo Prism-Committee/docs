@@ -7,29 +7,39 @@ sidebar_position: 1
 
 # WebShopX Reference
 
-这里集中提供“去哪里查准确参数”的索引，不再复制维护第二套配置、命令或错误码。
+Reference 用来**查准确值**，不是从头学习 WebShopX。需要完成一个流程时，请回到 [Guides](../guides/overview) 或对应的 Administration / Development 页面。
 
-| 需要查询 | 权威页面 |
+## 核心参考入口
+
+| 需要查询 | 页面 |
 | --- | --- |
-| `config.yml` 字段 | [配置与运行时参数](../admin/configuration) |
+| 当前运行配置 | [配置与运行时参数](../admin/configuration) |
 | 游戏命令与 Bukkit 权限 | [命令与权限体系](../admin/commands-permissions) |
-| 玩家常用术语 | [名词解释](../player/glossary) |
-| HTTP API 协议 | [HTTP API 基础](../developer/api-basics) |
-| HTTP API 认证 | [认证与会话](../developer/authentication) |
-| 玩家 API | [玩家侧 API](../developer/player-api) |
-| 市场 API | [市场 API](../developer/market-api) |
-| 后台 API | [后台 API](../developer/admin-api) |
-| API 错误码与幂等 | [错误码、枚举与幂等](../developer/errors-and-idempotency) |
-| 上传资源 | [上传与静态资源](../developer/uploads-and-static-assets) |
+| HTTP API 公共协议、鉴权、错误码、枚举与上传约定 | [HTTP API Reference](./http-api-reference) |
+| Player API endpoints | [Player API](../developer/player-api) |
+| Market API endpoints | [Market API](../developer/market-api) |
+| Admin API endpoints | [Admin API](../developer/admin-api) |
+| Payment Provider Java API | [WebShopXPaymentApi](../webshopx-payment-api) |
 | v2 → v3 差异 | [v2 → v3 迁移](../admin/v2-to-v3-migration) |
+| 玩家/业务术语 | [名词解释](../player/glossary) |
 
 ## 事实源优先级
 
-遇到文档与实际版本不一致时，按下面顺序判断：
+文档与实际实例不一致时，按下面顺序判断：
 
-1. 你正在运行的 WebShopX 版本代码 / 配置模板；
-2. 本 Reference 指向的对应文档；
-3. 玩家/管理员教程；
+1. 你正在运行的 WebShopX 版本代码和随版本发布的配置模板；
+2. 本 Reference 指向的精确文档；
+3. Guides / Administration / Development 中的任务型教程；
 4. README、旧截图或第三方教程。
 
-发现不一致时欢迎在 Prism-Committee 的 Issue 渠道反馈，并注明 WebShopX 版本和相关页面。
+## Reference 页面应该长什么样
+
+Reference 页面优先提供：
+
+- 精确名称；
+- 参数、字段、状态和默认值；
+- 可搜索表格；
+- 兼容性说明；
+- 必要但简短的行为约束。
+
+它们不应该重复大段“如何完成某个任务”的教程，从而避免同一事实维护两份。
