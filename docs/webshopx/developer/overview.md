@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # 开发者入口
 
-这个页面保留用于兼容旧链接。新的开发者主路径从 [Developer Quickstart](./quickstart) 开始，而不是要求先逐页阅读协议、认证、错误码和上传说明。
+开发者主路径从 [Developer Quickstart](./quickstart) 开始，再按需要进入对应 API 专题。
 
 ## 推荐路径
 
@@ -17,6 +17,6 @@ sidebar_position: 1
 4. [Admin API](./admin-api)：后台管理接口；
 5. [Payment Provider API](../webshopx-payment-api)：Bukkit/Paper 侧支付 Provider。
 
-所有 API 客户端共用的鉴权、状态码、幂等、错误码、枚举和上传约定已收敛到 [HTTP API Reference](../reference/http-api-reference)。
+所有 API 客户端共用的鉴权、状态码、幂等、错误码、枚举和上传约定统一进入 [HTTP API Reference](../reference/http-api-reference)。
 
-原有 `api-basics`、`authentication`、`errors-and-idempotency`、`uploads-and-static-assets` 和 `integration-playbook` 页面继续保留历史链接兼容，但不再作为主导航中的独立学习步骤。
+协议基础、认证、错误与幂等、上传等专题可从侧栏“专题参考”继续查看。
