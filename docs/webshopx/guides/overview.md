@@ -1,5 +1,6 @@
 ---
 id: guides-overview
+slug: /webshopx/guides/overview
 title: 使用指南
 sidebar_label: 使用指南
 sidebar_position: 1
