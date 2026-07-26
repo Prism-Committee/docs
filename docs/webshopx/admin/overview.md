@@ -12,7 +12,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Administration"
   title="从首次部署，到上线后的治理与运维"
-  description="这个页面保留用于兼容旧链接。新的主导航把服主相关内容拆成 Get started 与 Administration 两个更自然的阅读阶段。"
+  description="服主相关内容分为 Get started 与 Administration 两个阶段：先完成安装部署，再进入配置、治理、运维与排障。"
   primary={{label: '安装与部署', to: './install-deploy'}}
   secondary={{label: '运维与故障处理', to: './operations'}}
 />
@@ -39,4 +39,4 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 命令、权限、HTTP 公共协议等精确信息统一进入 [Reference](../reference/overview)。
 :::
 
-原有 Relay、库存运维、发货退款等专题页仍保留在侧栏的“高级专题”中，用于需要更深细节的场景；核心日常流程仍优先从安装部署或运维主页面进入。
+Relay、库存运维、发货退款等更深入内容可从侧栏“高级专题”继续查看。
