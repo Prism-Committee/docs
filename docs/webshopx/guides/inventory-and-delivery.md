@@ -13,15 +13,15 @@ sidebar_position: 4
 
 ```mermaid
 flowchart LR
-    A[交易 / 订单] --> B{交付方式}
-    B -->|即时发货| C[尝试放入背包]
-    B -->|手动领取| D[WAIT_CLAIM]
-    D --> E[/ws claim]
-    C --> F{背包可接收?}
+    A["交易 / 订单"] --> B{"交付方式"}
+    B -->|即时发货| C["尝试放入背包"]
+    B -->|手动领取| D["WAIT_CLAIM"]
+    D --> E["/ws claim"]
+    C --> F{"背包可接收？"}
     E --> F
-    F -->|是| G[玩家背包]
-    F -->|否| H[游戏信箱]
-    H --> I[/ws mailbox collect]
+    F -->|是| G["玩家背包"]
+    F -->|否| H["游戏信箱"]
+    H --> I["/ws mailbox collect"]
 ```
 
 如果商品没有立即出现，不代表订单一定失败。先检查订单是否进入 `WAIT_CLAIM`，再检查信箱。
