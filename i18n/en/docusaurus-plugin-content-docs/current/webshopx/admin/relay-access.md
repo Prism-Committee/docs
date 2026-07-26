@@ -12,7 +12,7 @@ Relay provides a public WebShopX shop without requiring the Minecraft server to 
 :::info[Official Relay service]
 Current official service panel: **[Open the WebShopX Relay service panel](https://47.122.127.164/)**
 
-The panel is used for account access, project management, server binding, redemption, and usage information. Available pages and entitlements may change; always follow what the panel currently shows.
+The panel is used for account access, service activation, project management, server binding, redemption, and usage information. Available pages, plans, and entitlements may change; always follow what the panel currently shows.
 :::
 
 This page only documents the server-owner workflow and intentionally does not describe Relay server internals.
@@ -39,25 +39,49 @@ WebShopX supports three web deployment modes:
 Open the [WebShopX Relay service panel](https://47.122.127.164/) to manage the user-facing Relay resources:
 
 - **Account**: registration, sign-in, and account security;
+- **Activate service**: claim the first free trial or purchase a plan yourself;
 - **Projects**: a Relay project represents one hosted WebShopX public instance;
 - **Server binding**: associate a WebShopX server with the intended project;
-- **Redemption**: create or extend a project when you have an eligible redemption code;
+- **Redemption**: use an eligible code to activate or extend benefits;
 - **Project panel**: review project and connection state;
-- **Usage and entitlement information**: view the limits currently presented for the project.
+- **Usage and entitlements**: review traffic, API requests, cache capacity, and expiration.
+
+### Ways to activate Relay
+
+A redemption code is not required for every user. Current activation options include:
+
+1. **First free trial**: each user can claim one 5-day trial;
+2. **Self-service purchase**: choose and purchase a plan from the service page;
+3. **Redemption code**: redeem an eligible code when available;
+4. **Additional trial time**: join QQ group `636803372` and follow the current instructions for additional trial benefits.
+
+:::note[Plan information]
+The panel currently presents Trial, Lite, Standard, and Advanced plans. Prices, durations, traffic, API request limits, and cache capacity may change, so confirm the live values in the official panel before activation or purchase.
+:::
+
+Current examples shown by the panel are:
+
+| Plan | Current price / duration | Current displayed allowance | Suggested use |
+| --- | --- | --- | --- |
+| Trial | ¥0 / 5 days | 1 GB traffic, 100,000 API requests, 256 MB cache | Initial testing |
+| Lite | ¥6 / 30 days | 5 GB traffic, 200,000 API requests, 1 GB cache | Low usage or small servers |
+| Standard | ¥10 / 30 days | 10 GB traffic, 600,000 API requests, 1 GB cache | Stable medium-sized servers |
+| Advanced | ¥20 / 30 days | 40 GB traffic, 3,000,000 API requests, 2 GB cache | Higher traffic or more resources |
 
 :::tip
-For a first-time setup, sign in to the official panel and make sure you have a usable project before starting the in-game Relay setup flow.
+For a first setup, claim the 5-day trial, complete the Relay integration test, and then decide whether to purchase a longer plan.
 :::
 
 ## Recommended setup
 
-### 1. Prepare your account and project
+### 1. Prepare your account and service
 
 1. Open the [official Relay panel](https://47.122.127.164/).
 2. Register or sign in.
-3. Open your user dashboard.
-4. Confirm that you have a usable project.
-5. If a redemption code is required, follow the panel to redeem it first.
+3. Open **Activate Service**.
+4. Claim the one-time 5-day trial or purchase a plan directly.
+5. If you have a redemption code, you may redeem it instead.
+6. Confirm that a usable project or service instance exists under the account.
 
 Never post your access key, authorization link, or verification code in a ticket or public chat.
 
@@ -105,11 +129,12 @@ Use WebShopX itself for shop business such as products, orders, market functions
 
 Use the Relay service panel for:
 
+- claiming a trial, purchasing plans, or redeeming codes;
 - projects;
 - server binding state;
 - Relay account management;
-- project usage/entitlement information;
-- redemption or project-level hosting operations.
+- expiration, traffic, request counts, cache capacity, and other entitlements;
+- renewal, upgrades, and project-level hosting operations.
 
 The Relay panel manages **public hosting and project relationships**. The WebShopX admin panel manages **shop business data**.
 
@@ -165,18 +190,27 @@ Run `/ws mode setup relay` as an **in-game** administrator with the required per
 
 That is expected. Sign in with the account that should manage the Relay project.
 
+### I cannot find the free trial
+
+Confirm whether the current account has already used its one-time trial. Each user receives one 5-day trial. For additional trial time, join QQ group `636803372` and follow the current activity or application instructions.
+
+### The allowance did not update after purchase or renewal
+
+Refresh the project panel and confirm that the purchase targeted the intended project. This is especially important for accounts with multiple projects. Keep the order information and contact official support if the entitlement still does not update.
+
 ### Authorization succeeded but the project is not usable
 
 Check the Relay panel first:
 
 1. a valid project exists;
-2. the server is not still pending binding;
-3. it is bound to the intended project;
-4. `/ws mode switch relay` has been executed.
+2. the service has not expired;
+3. the server is not still pending binding;
+4. it is bound to the intended project;
+5. `/ws mode switch relay` has been executed.
 
 ### `/ws home` is not configured or does not open
 
-Confirm Relay mode, authorization state, project/server binding, and then check the WebShopX logs for continuing connection errors.
+Confirm Relay mode, authorization state, project/server binding, active service duration, remaining allowance, and then check the WebShopX logs for continuing connection errors.
 
 ### I have multiple Minecraft servers
 
