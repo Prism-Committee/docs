@@ -25,7 +25,7 @@ import {DocHero, FeatureCards, PlanCards, Steps} from '@site/src/components/DocV
 面板用于账号登录、开通服务、项目管理、服务器绑定、兑换与用量查看。服务入口、套餐和可用权益可能调整，以面板实际显示为准。
 :::
 
-本文只说明服主需要使用的公开功能和操作流程，不介绍 Relay 服务端的内部实现。
+公开文档仅覆盖服主需要使用的功能和操作流程，不涉及 Relay 服务端内部实现。
 
 ## 1. Relay 适合什么情况
 
