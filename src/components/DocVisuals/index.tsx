@@ -39,6 +39,49 @@ export function FeatureCards({items}: {items: FeatureCardItem[]}) {
   );
 }
 
+export type ProjectLink = {
+  label: string;
+  to: string;
+};
+
+export function ProjectPanel({
+  icon,
+  title,
+  description,
+  links,
+  children,
+}: {
+  icon?: string;
+  title: string;
+  description: string;
+  links?: ProjectLink[];
+  children: ReactNode;
+}) {
+  return (
+    <section className={styles.projectPanel}>
+      <div className={styles.projectHeader}>
+        <div className={styles.projectHeading}>
+          {icon ? <span className={styles.projectIcon}>{icon}</span> : null}
+          <div>
+            <h2 className={styles.projectTitle}>{title}</h2>
+            <p className={styles.projectDescription}>{description}</p>
+          </div>
+        </div>
+        {links?.length ? (
+          <div className={styles.projectLinks}>
+            {links.map((link) => (
+              <Link className={styles.projectLink} to={link.to} key={`${link.label}-${link.to}`}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
+      </div>
+      <div className={styles.projectBody}>{children}</div>
+    </section>
+  );
+}
+
 export type StepItem = {
   title: string;
   children: ReactNode;
