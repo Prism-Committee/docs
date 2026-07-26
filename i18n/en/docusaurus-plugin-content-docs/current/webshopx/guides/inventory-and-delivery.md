@@ -13,15 +13,15 @@ This page answers one common question: **where did my item go after a transactio
 
 ```mermaid
 flowchart LR
-    A[Transaction / Order] --> B{Delivery mode}
-    B -->|Immediate| C[Try inventory delivery]
-    B -->|Manual claim| D[WAIT_CLAIM]
-    D --> E[/ws claim]
-    C --> F{Inventory accepts item?}
+    A["Transaction / Order"] --> B{"Delivery mode"}
+    B -->|Immediate| C["Try inventory delivery"]
+    B -->|Manual claim| D["WAIT_CLAIM"]
+    D --> E["/ws claim"]
+    C --> F{"Inventory accepts item?"}
     E --> F
-    F -->|Yes| G[Player inventory]
-    F -->|No| H[Mailbox]
-    H --> I[/ws mailbox collect]
+    F -->|Yes| G["Player inventory"]
+    F -->|No| H["Mailbox"]
+    H --> I["/ws mailbox collect"]
 ```
 
 If an item does not appear immediately, the order is not necessarily broken. Check `WAIT_CLAIM`, then check the mailbox.
