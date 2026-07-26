@@ -7,7 +7,7 @@ sidebar_position: 7
 
 # 拍卖
 
-本页按源码行为解释 WebShopX 的拍卖机制、出价规则、资金冻结与结算流程。
+本页解释 WebShopX 的拍卖机制、出价规则、资金冻结与结算流程。
 
 :::info[本页导读]
 - 四种拍卖模式对照
@@ -16,13 +16,15 @@ sidebar_position: 7
 - 到期结算逻辑
 :::
 
-## 1. 拍卖前先知道三件事
+## 1. 拍卖条件
 
 1. 拍卖是 `tradeMode=AUCTION`，只允许 `SELL` 挂单。
 2. 拍卖最短时长要求 `>= 30 秒`。
 3. 结算由服务端周期任务处理，不依赖页面是否打开。
 
 ## 2. 拍卖模式速览
+
+> 主条目：[拍卖算法](algorithm#-第三章拍卖机制算法全解析-4大模式)
 
 | 模式 | 交互方式 | 价格机制 | 适用场景 |
 | --- | --- | --- | --- |
@@ -56,34 +58,7 @@ sidebar_position: 7
 
 ## 3. 各模式关键参数
 
-### 3.1 English
-
-- `auctionStartPrice`
-- `auctionMinIncrement`（必须 > 0）
-- `auctionEndAt`
-- `auctionParams.reservePrice`（可选）
-- `auctionParams.antiSnipingWindowSeconds`（默认 30）
-- `auctionParams.antiSnipingExtendSeconds`（默认 30）
-
-### 3.2 Dutch
-
-- `auctionStartPrice`
-- `auctionParams.floorPrice`（>0 且不高于起拍价）
-- `auctionParams.durationSeconds`（>=30）
-
-### 3.3 Vickrey
-
-- `sealedBid=true`
-- `auctionStartPrice`
-- `auctionEndAt`
-- `auctionParams.reservePrice`（可选）
-
-### 3.4 Candle
-
-- `auctionStartPrice`
-- `auctionMinIncrement`
-- `auctionParams.baseDurationSeconds`（>=30）
-- `auctionParams.maxExtensionSeconds`（>=0）
+> v3 前端已经加入相关提示，本页移除。另:可参考 [拍卖算法](algorithm#-第三章拍卖机制算法全解析-4大模式)
 
 ## 4. 出价与资金冻结
 
@@ -97,24 +72,24 @@ sidebar_position: 7
 
 每轮批量结算（最多 20 条）：
 
-- Dutch：无人直购则流拍退货。
-- English/Candle：无出价或未达保留价则流拍；否则按最高价成交。
-- Vickrey：按维克里清算价成交；非胜者退款。
+- 荷兰拍卖：无人直购则流拍退货。
+- 英式拍卖/蜡烛拍卖：无出价或未达保留价则流拍；否则按最高价成交。
+- 密封拍卖：按第二高出价成交；非胜者退款。
 
 ## 6. 常见错误码
 
-- `auction_only_bid`
-- `auction_only_buy`
-- `auction_closed`
-- `bid_too_low`
-- `invalid_auction_start`
-- `invalid_auction_increment`
-- `invalid_auction_floor`
-- `invalid_auction_end`
+- `auction_only_bid`：仅允许竞价
+- `auction_only_buy`：仅允许直接购买
+- `auction_closed`：拍卖已结束或关闭
+- `bid_too_low`：出价过低
+- `invalid_auction_start`：无效的起拍价
+- `invalid_auction_increment`：无效的加价幅度
+- `invalid_auction_floor`：无效的最低成交价
+- `invalid_auction_end`：无效的拍卖结束时间
 
-## 7. 玩家建议
+## 7. 建议
 
-1. English 末段可能反复延时，不要只盯名义截止秒。
-2. Dutch 的核心是等目标价，不是跟人抬价。
-3. Vickrey 建议报真实愿付价，不要按英式习惯一点点加。
-4. Candle 末段有随机性，避免卡秒赌博式操作。
+1. 英式拍卖 末段可能反复延时，不要只盯名义截止秒。
+2. 荷兰拍卖 的核心是等目标价，不是跟人抬价。
+3. 密封拍卖 建议报真实愿付价，不要按英式习惯一点点加。
+4. 蜡烛拍卖 末段有随机性，避免卡秒赌博式操作。

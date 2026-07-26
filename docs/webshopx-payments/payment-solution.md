@@ -9,13 +9,19 @@ sidebar_position: 4
 
 本页汇总 `WebShopX-Payments` 当前支持或已实现的支付方案，便于你快速评估可用性与接入优先级。
 
+:::info[v3.1.1 适用说明]
+
+表格中的“已实现”不等于你的商户账号一定可用。v3 部署时还需同时启用 Bukkit 侧渠道开关和 `backend/config.json` 中的对应渠道，并以沙盒或最小金额实测为准。
+
+:::
+
 | **状态** | **平台**    | **方案**                                                     | **说明**                                                     |
 | -------- | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 🟢        | 支付宝      | [订单码支付](https://open.alipay.com/api/detail?code=I1080300001000068149&index=0) | **官方接口**。由服务端调用官方 API 生成动态支付二维码，用户扫码完成付款。 |
-| 🔵        | 微信支付    | [Native 支付](https://pay.weixin.qq.com/static/product/product_intro.shtml?name=native) | **官方接口**。标准扫码支付模式。系统生成二维码码，用户扫码后拉起标准微信收银台。 |
+| 🔵        | 微信支付    | [Native 支付](https://pay.weixin.qq.com/static/product/product_intro.shtml?name=native) | **官方接口**。标准扫码支付模式。系统生成动态二维码，用户扫码后拉起微信收银台。 |
 | 🟢        | PayPal      | [REST API v2](https://developer.paypal.com/docs/api/orders/v2/) | **官方接口**。基于第三方封装库 payper 调用 PayPal 官方订单 API，动态生成支付审批链接或二维码。 |
 | 🟡        | MercadoPago | [Pro Checkout](https://www.mercadopago.com.br/developers/)   | **官方接口**。MercadoPago官方接口。                          |
-| 🟢        | Stripe      | [Checkout / Elements](https://docs.stripe.com/)              | **官方接口**。已接入其标准 Web 支付流，支持多币种及各类国际信用卡信用卡。 |
+| 🟢        | Stripe      | [Checkout / Elements](https://docs.stripe.com/)              | **官方接口**。已接入标准 Web 支付流，支持多币种及国际信用卡。 |
 | 🔵        | 支付宝      | 免签 Hook                                                    | **第三方方案**。后端配置固定金额收款码，通过 Hook 截取开放平台的交易通知或账单信息，实现免签自动化回调。 |
 | 🔵        | 微信支付    | 免签 Hook                                                    | **第三方方案**。后端配置固定金额收款码，通过 Hook 截取微信 PC 端的实时收款通知，由后端匹配金额并确认付款。 |
 
@@ -26,4 +32,4 @@ sidebar_position: 4
 > - **🟡 待验证**：代码已实现。因开发人员缺少相关接口权限/凭证，暂未进行实际测试。
 > - **🔴 暂不可用**：方案当前不可用，目前尚无有效的实现方法。
 >
-> 如果你完成了🔵和🟡项目的测试及验证，欢迎提交issues反馈结果。
+> 状态是项目侧验证记录，不是支付平台 SLA。完成未验证项目测试后，可通过 Issues 反馈版本、地区、币种和脱敏日志。

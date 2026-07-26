@@ -9,6 +9,8 @@ sidebar_position: 7
 
 `WebShopX-Payments` 提供了极其简洁的游戏内指令与权限节点，主要用于管理员进行配置热重载与运行时状态排障。
 
+v3 的渠道配置也可以由 WebShopX 后台通过 Provider 能力展示，但这不会改变 `/wsxpay` 的权限节点，也不代表 WebShopX 会替第三方插件完成重载。
+
 ---
 
 ## 1. 游戏内主命令
@@ -23,6 +25,8 @@ sidebar_position: 7
 | `/wsxpay help` | `webshopxpayments.command` | 查看插件指令帮助列表。 |
 | `/wsxpay reload` | `webshopxpayments.admin` | 热重载 Bukkit 插件配置（`config.yml`）与内嵌支付后端（`config.json`）。 |
 | `/wsxpay status` | `webshopxpayments.admin` | 查看后端连接状态（backend connected）与 Provider 注册状态（provider registered）。 |
+
+执行 `reload` 后仍应再次运行 `status`。涉及端口、进程或底层客户端重建的修改，以页面提示和插件日志为准，必要时完整重启服务端。
 
 ---
 

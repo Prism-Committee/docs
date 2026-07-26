@@ -114,9 +114,11 @@ FLUSH PRIVILEGES;
 
 建议：
 
-- 开启 `sqlite-journal-mode: WAL`
-- 使用 `sqlite-busy-timeout-ms` 和 `sqlite-max-retries`
-- 保持较小连接池（建议 1~2）
+- 先确认只运行一个 WebShopX 实例，且 `cluster.role=standalone`
+- 避免把 SQLite 文件放在网络盘或同步盘
+- 缩短高峰期批量管理操作，并检查是否有异常进程长期占用数据库
+- 当前默认模板没有公开 `sqlite-journal-mode`、`sqlite-busy-timeout-ms` 等键，不要照搬旧开发构建参数
+- 冲突持续出现时迁移到 MySQL/MariaDB
 
 ### 9.3 什么时候改用 MySQL/MariaDB？
 

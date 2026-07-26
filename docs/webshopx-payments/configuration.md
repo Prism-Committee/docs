@@ -11,11 +11,13 @@ sidebar_position: 3
 1. **`config.yml`**：由 Bukkit 插件加载，控制支付通道开关与 API 同步等待超时。
 2. **`backend/config.json`**：由内嵌支付后端加载，保存具体的第三方/官方支付接口敏感凭证与代理设置。
 
+当前版本还提供可本地化的 Web 配置界面，字段会按 `config-locales/<locale>.yml` 显示。网页保存的仍是同一组插件端和内嵌后端设置，不是第三份独立配置。
+
 ---
 
 ## 1. 插件端 `config.yml` 详解
 
-当前版本（已移除游戏内地图二维码功能）`config.yml` 结构如下：
+v3 的 Bukkit 配置除渠道开关与 API 超时外，还可以包含 Provider、默认支付方式、支付超时、Hook 金额避让、Action Bar 和可选地图二维码设置。实际生成项以安装版本为准：
 
 ```yaml
 # ==========================================
@@ -24,6 +26,7 @@ sidebar_position: 3
 
 # 支付接口行为控制
 payment:
+  default-method: alipay
   # 插件等待内嵌后端响应创建支付的最长同步时间（秒）
   api-timeout-seconds: 15
   
@@ -35,6 +38,16 @@ payment:
     mercadopago: false   # MercadoPago (拉美)
     stripe: false        # Stripe (信用卡，可选)
 ```
+
+其他常见字段：
+
+- `provider-id`：向 WebShopX 注册的 Provider ID，通常保持 `webshopx-payments`。
+- `payment.timeout`：玩家完成支付的有效时间。
+- `payment.allow-increasing`：仅 Hook 模式使用；金额冲突时是否允许自动避让。
+- `payment.action-bar`：游戏内支付进度提示。
+- `map-item`：可选的 Minecraft 地图二维码展示。它在 v3 当前代码中仍受支持，不应再按旧文档写成“已移除”。
+
+不要从其他构建复制整份配置覆盖当前生成文件；升级时逐项合并。
 
 ---
 
@@ -91,3 +104,21 @@ payment:
 - 如果局部代理未设置，则默认**继承**根节点的全局代理设置。
 - 如果局部代理显式配置，则会**覆盖**全局代理，只对当前支付通道生效。
 :::
+
+:::warning[代理与密钥安全]
+
+代理用户名、代理密码、支付私钥、访问令牌和 Webhook 密钥都属于敏感信息。只在受保护的后台中填写，不要提交到 Git、截图到公开工单或直接粘贴到聊天记录。
+
+:::
+
+## 3. Web 后台配置
+
+支付设置页可以管理：
+
+- 默认支付方式与 API 超时；
+- 支付宝、微信、PayPal、Mercado Pago、Stripe 的启用状态；
+- 内嵌后端端口、日志级别和调试日志；
+- 全局代理及各渠道代理；
+- 各渠道的商户号、应用 ID、币种、回调地址和密钥引用。
+
+保存后先使用沙盒或最小金额订单验证。修改端口、代理或后端凭证后，若页面提示需要重启，应完整重启服务端，不要只执行热重载。

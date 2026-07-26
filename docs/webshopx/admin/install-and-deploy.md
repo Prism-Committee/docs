@@ -11,9 +11,12 @@ sidebar_position: 2
 
 ## 1. 环境要求
 
-- Java：`21`
-- 服务端：`Paper 1.20.6+`（兼容 Spigot）
-- 数据库：MariaDB / MySQL
+- 服务端构建与 Java 必须匹配：
+  - Minecraft `1.18.2+` 构建：Java `17`
+  - Minecraft `1.20.6+` 构建：Java `21`
+  - Minecraft `26.1+ / 26.2+` 构建：Java `25`
+- 推荐 Paper；Folia 请使用对应的 Folia 构建。
+- 数据库：默认 SQLite；生产或高并发场景推荐 MariaDB / MySQL
 - 可选依赖：Vault（用于 `GAME_COIN` 对接）
 
 ## 2. 获取插件
@@ -65,7 +68,7 @@ FLUSH PRIVILEGES;
 
 1. 将插件 jar 放入服务器 `plugins/` 目录。
 2. 启动服务器一次，生成默认配置。
-3. 编辑 `plugins/WebShopX/config.yml`，至少修改 `database.*`。
+3. 编辑 `plugins/WebShopX/config.yml`。默认 SQLite 可直接试运行；使用 MariaDB/MySQL 时必须修改 `database.*`。
 4. 重启服务器。
 5. 玩家在游戏内执行：
 
@@ -73,28 +76,24 @@ FLUSH PRIVILEGES;
 /ws password <新密码>
 ```
 
-6. 打开玩家端页面：
+6. 打开站点根路径：
 
 ```text
 http://<host>:8819/
 ```
 
-7. 打开后台页面：
-
-```text
-http://<host>:8819/admin.html
-```
+7. 登录后从站点导航进入后台。`/admin.html` 仅作为 v2 兼容重定向，不再是 v3 的主入口。
 
 :::danger[默认数据库占位会阻止启动]
 
-默认值为：
+选择 MySQL/MariaDB 且仍使用以下占位值时：
 
 - `database.host: 127.0.0.1`
 - `database.schema: webshop`
 - `database.username: webshop`
 - `database.password: change_me`
 
-如果保持占位值，插件会拒绝正常启动。
+插件会拒绝正常启动。默认 SQLite 模式不受这组占位值影响。
 
 :::
 
@@ -128,14 +127,25 @@ http://<host>:8819/admin.html
 
 建议在 `external` 下设置：
 
-- `webshop.api-base-url`
+- `webshop.public-url`
+- `webshop.embedded-http.public-api-url`
+- `webshop.embedded-http.cors`
 - 反向代理 HTTPS
 - 合理的缓存与访问控制
+
+#### `relay`
+
+- 通过 WebShopX Relay 提供公网访问，不需要直接开放 `8819`。
+- 推荐由游戏内管理员执行 `/ws mode setup relay` 完成设备授权。
+- 授权完成后执行 `/ws mode switch relay`，再用 `/ws home` 验证。
+
+完整步骤见 [Relay 公网访问](./relay-access.md)。
 
 ## 6. 生产环境安全清单
 
 - 修改数据库账号密码，限制数据库访问来源。
 - 关闭或重置 `admin-bootstrap` 默认管理员。
+- 不公开 Relay 授权链接和 `relay.access-key`。
 - 通过 Nginx / CDN 提供 HTTPS。
 - 仅开放必要端口（默认 8819）。
 - 定期备份数据库与 `plugins/WebShopX` 数据目录。
@@ -178,13 +188,8 @@ WebShopX 已支持 `database.type=sqlite`，适合单服/轻量场景。
 ```yaml
 database:
   type: sqlite
-  sqlite-file: data/webshopx.db
-  sqlite-journal-mode: WAL
-  sqlite-synchronous: NORMAL
-  sqlite-busy-timeout-ms: 5000
-  sqlite-max-retries: 5
-  sqlite-retry-backoff-ms: [10, 50, 100]
-  pool-size: 2
+  sqlite-file: plugins/WebShopX/webshopx.db
+  pool-size: 10
 
 cluster:
   role: standalone

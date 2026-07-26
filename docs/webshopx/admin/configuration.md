@@ -8,28 +8,28 @@ sidebar_position: 3
 # 配置
 
 :::info[本页导读]
-- 1.1.5+ 新配置怎么改
-- 1.1.5 及以下 旧配置怎么看
+- 当前最小启动配置怎么改
+- v2 旧配置怎么看
 - 新旧字段迁移对照
 - 服主上线前检查清单
 :::
 
 ## 1. 先看结论（服主必读）
 
-1. `1.1.5+`：`config.yml` 主要保留“运行环境参数”（数据库、集群、Redis、内置 Web/API 启动）。
-2. `1.1.5 及以下`：`config.yml` 同时包含大量“业务规则参数”（兑换、币种、市场税费、排行榜、广播模板等）。
-3. 升级到 `1.1.5+` 后，很多旧字段已迁移到 Web 后台可视化管理，不建议继续在 `config.yml` 里维护这些业务项。
+1. 当前版本：`config.yml` 主要保留部署模式、数据库、集群、Redis、内置 Web/API 启动和本地安全开关。
+2. v2 及更早版本：`config.yml` 同时包含大量业务规则参数（兑换、币种、市场税费、排行榜、广播模板等）。
+3. v3 中很多旧字段已迁移到 Web 后台和数据库，不建议继续在 `config.yml` 里维护这些业务项。
 
-## 2. 1.1.5+ 新配置（推荐做法）
+## 2. 当前最小配置（推荐做法）
 
 下面是面向服主的“默认风格示例”（已去掉个性化值）：
 
 ```yaml
 webshop:
-  # internal=插件内置 Web+API；external=只提供后端 API（前端走外部反代/CDN）
+  # internal=插件内置 Web+API；external=只提供 API；relay=通过 Relay 公网访问
   server-mode: internal
-  # external 模式建议填写完整公网地址；internal 可留空
-  api-base-url: ''
+  # 用户实际访问的前端地址；留空时由请求推断
+  public-url: ''
   admin-bootstrap:
     # 首次启动自动创建管理员；上线稳定后可改为 false
     enabled: true
@@ -46,15 +46,23 @@ webshop:
     port: 8819
     # 静态资源目录（相对插件目录）
     static-root: web
+    # 对外公开的完整 API 根地址，应包含 /api；同源部署可留空
+    public-api-url: ''
+    cors:
+      enabled: false
+      allowed-origins:
+        - '*'
+  inventory-read-snapshots:
+    retention-days: 30
 
-economy:
-  inflation-control:
-    # burn=回收销毁；treasury=进入国库账户（按插件实现）
-    mode: burn
-    # 国库用户 ID（mode=treasury 时生效）
-    treasury-user-id: 0
+relay:
+  url: ''
+  # 推荐用 /ws mode setup relay 授权，不要公开此值
+  access-key: ''
 
 database:
+  # mysql | mariadb | sqlite
+  type: sqlite
   # 数据库地址（推荐内网地址或本机）
   host: 127.0.0.1
   port: 3306
@@ -70,6 +78,7 @@ database:
   allow-public-key-retrieval: true
   # 可选：服务端 RSA 公钥文件路径或 PEM 文本
   server-rsa-public-key-file: ''
+  sqlite-file: plugins/WebShopX/webshopx.db
   # 连接池大小（小服 5-10，大服按并发调优）
   pool-size: 10
 
@@ -94,6 +103,10 @@ redis:
   cluster-channel: webshopx:cluster:event
   # 兼容旧字段（可与 broadcast-channel 保持一致）
   channel: webshopx:market:broadcast
+
+safety:
+  # 本地紧急开关；true 时禁止后台开启离线 playerdata 写入
+  force-disable-offline-inventory-write: false
 ```
 
 ### 2.1 关键字段说明
@@ -102,11 +115,11 @@ redis:
 
 ### 2.2 新版配置原则
 
-1. `config.yml` 只放运行参数。
+1. `config.yml` 只放运行参数和必须保留在本机的安全开关。
 2. 业务规则优先在 Web 后台改（币种、兑换、市场税费、排行榜等）。
 3. 不把数据库真实密码提交到 Git 仓库。
 
-## 3. 1.1.5 及以下 旧配置（识别用）
+## 3. v2 及更早版本的旧配置（识别用）
 
 旧版里常见这类业务字段（新版通常已迁移到后台）：
 
@@ -118,11 +131,11 @@ redis:
 - `webshop.broadcast.*`
 - `sample-products`
 
-如果你还在维护旧版本，以上字段仍可能有效；但对 `1.1.5+`，请按新版管理方式迁移。
+如果你还在维护旧版本，以上字段仍可能有效；升级 v3 后请按新版管理方式迁移。
 
 ## 4. 新旧字段对照（迁移重点）
 
-| 旧版字段（1.1.5 及以下） | 1.1.5+ 建议 |
+| v2 旧字段 | v3 建议 |
 | --- | --- |
 | `exchange.*` | 改到 Web 后台管理 |
 | `currency.*` | 改到 Web 后台管理 |
@@ -147,19 +160,14 @@ redis:
 3. 是否误把生产密码写进公开仓库。
 4. 单服是否误开集群模式。
 5. 需要跨服广播时，Redis 和频道名是否一致。
+6. Relay 访问密钥是否被提交到仓库或截图中。
+7. 未完成离线背包测试时，是否保持离线写入关闭。
 
 
 ## SQLite 配置补充（新增）
 
 `database.type` 现支持：`mysql | mariadb | sqlite`
 
-SQLite 专用字段：
-
-- `sqlite-file`
-- `sqlite-journal-mode`
-- `sqlite-synchronous`
-- `sqlite-busy-timeout-ms`
-- `sqlite-max-retries`
-- `sqlite-retry-backoff-ms`
+当前默认模板中的 SQLite 专用字段为 `sqlite-file`。旧版本或开发构建中出现的调优字段，不应在确认当前版本支持前照搬。
 
 重要限制：`database.type=sqlite` 时，`cluster.role` 必须是 `standalone`。

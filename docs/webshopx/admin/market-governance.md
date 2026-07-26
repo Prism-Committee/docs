@@ -7,6 +7,8 @@ sidebar_position: 5
 
 # 市场治理与风控
 
+v3 的市场规则主要在 Web 后台和数据库中维护，`config.yml` 不再是市场税费、限制、标签和算法参数的主要配置入口。网页背包、市场 GUI 和 API 创建的挂单都会经过同一套服务端治理规则。
+
 ## 1. 市场结构要点
 
 - `side`：`SELL` / `BUY`
@@ -24,7 +26,7 @@ sidebar_position: 5
 ### 2.1 自动标签匹配
 
 - 按 `priority` 升序评估
-- 可按材质与 NBT 关键字匹配
+- 可按材质及版本支持的物品元数据条件匹配；新版本物品可能使用 Data Components，不应只按旧 NBT 术语理解
 - 未命中回退 `defaultTag`，最终兜底 `default`
 
 ### 2.2 重算标签

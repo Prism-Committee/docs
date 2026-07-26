@@ -1,4 +1,5 @@
 ---
+id: webshopx-payment-api
 title: WebShopXPaymentApi 接入指南
 sidebar_label: WebShopXPaymentApi 接入
 sidebar_position: 1
@@ -63,6 +64,20 @@ sequenceDiagram
 
 - `providerId` 使用稳定且全局唯一的字符串（例如 `acme-payments`）。
 - 插件重载时先注销旧实例，再注册新实例，减少重复绑定风险。
+
+## v3 可选配置能力
+
+v3 在基础 `WebShopXPaymentApi` 之外增加了可选的 Provider 配置能力。支付插件只有在确实实现并注册对应能力时，WebShopX 后台才会展示和转发这些设置。
+
+相关类型位于 `com.webshopx.payment.api`，包括：
+
+- `PaymentConfigurable`：Provider 暴露配置描述、快照与更新入口；
+- `PaymentConfigDescriptor` / `PaymentConfigSection` / `PaymentConfigField`：声明后台字段结构；
+- `PaymentConfigSnapshot`：返回当前值；
+- `PaymentConfigUpdateRequest` / `PaymentConfigUpdateResult`：校验并应用修改；
+- `PaymentConfigApplyMode`：说明修改是即时生效还是需要后续动作。
+
+WebShopX 只负责展示和转发，Provider 必须自行完成校验、持久化、敏感字段处理和运行时应用。不要让后台读取到未脱敏的密钥，也不要依赖 WebShopX 重载第三方支付插件。
 - 依赖未就绪或配置异常时，返回清晰错误并避免“看起来已注册但不可用”的状态。
 
 ## createPayment 实现要点

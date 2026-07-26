@@ -7,6 +7,8 @@ sidebar_position: 1
 
 # WebShopX-Payments 服主文档
 
+本文档以 v3.1.1 和当前 v3 配置能力为基线。旧版独立后端、WebSocket 插件变体和旧配置截图不再作为当前部署依据；安装时使用发布页提供的 `with-backend` 完整包。
+
 This plugin is based on [SweetCheckout](https://github.com/MrXiaoM/SweetCheckout), licensed under AGPL-3.0.
 
 ## 问题反馈
@@ -39,7 +41,7 @@ This plugin is based on [SweetCheckout](https://github.com/MrXiaoM/SweetCheckout
 | --- | --- |
 | **Bukkit 插件端 (WSXPay)** | 作为 WebShopX 的 `webshopx-payments` provider 运行，管理指令及支付状态上报。 |
 | **内嵌后端 (with-backend)** | 集成于插件内的轻量级服务（默认端口 `62233`），直接与支付宝、微信、PayPal、MercadoPago 等上游服务对接。 |
-| **外部 Hook 辅助端 (可选)** | 运行在本地或特定 Windows 系统的独立可执行程序（v3/v4），用于在不接入官方企业接口时抓取个人收款通知并转发给内嵌后端。 |
+| **外部 Hook 辅助端（可选）** | 特定 Windows/微信版本下使用的独立辅助程序；兼容性和合规风险高于官方渠道。 |
 
 ## 你最需要先关心的风险点
 

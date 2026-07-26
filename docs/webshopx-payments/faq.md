@@ -9,6 +9,8 @@ sidebar_position: 8
 
 本文汇总了在安装、配置和运行 `WebShopX-Payments` 插件过程中可能遇到的常见故障及其解决方案。
 
+v3 排障应先执行 `/wsxpay status`，再区分“Provider 未注册”“内嵌后端未连接”“渠道未启用”和“上游接口失败”。不要一开始就删除订单索引或配置文件。
+
 ---
 
 ## 1. 核心连通性问题
@@ -22,6 +24,7 @@ sidebar_position: 8
    [WebShopX] Payment provider detected; recharge listener registered: webshopx-payments
    ```
 3. 如果未看到，请确认您下载并使用的是 `with-backend` 发布形态的 JAR 包（旧的独立后端与 WebSocket 插件变体已废弃）。
+4. 若后台可以看到 Provider 设置但无法保存，检查 WebShopX 与 WebShopX-Payments 是否来自兼容的 v3 API 版本，并查看 Provider 返回的字段校验错误。
 :::
 
 ---

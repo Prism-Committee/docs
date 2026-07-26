@@ -7,67 +7,48 @@ sidebar_position: 5
 
 # 领取与信箱
 
-:::warning[]
-
-这不是你的错。本页内容还在评估，功能可能计划更新或移除，固内容仅供参考。
-
-:::
-
-当发货不能即时完成时，你会接触到 `claim` 和 `mailbox` 两条兜底链路。
+当购买商品却没有立即收到时，你会接触到 `claim` 和 `mailbox` 。
 
 :::info[本页导读]
-- 什么情况下会进入手动领取
-- claim token 前缀与命令过滤
+- 链路说明
+- 相关命令
 - 共享领取开关
-- 信箱回退与常见错误
+- 与常见错误
 :::
 
-## 1. 什么时候需要手动领取
+## 1. 链路说明
 
-常见场景：
+```mermaid
+flowchart LR
+    A[交易 / 订单] --> B{领取方式}
 
-- 自动发货失败
-- 发货状态进入 `WAIT_CLAIM`
-- 市场成交需要你手动领取
+    B -->|即时发货| C[尝试发货]
+    B -->|手动领取| D["待发货<br/>/ws claim [token]"]
 
-## 2. 领取命令
+    C --> E{可接收?}
+    D --> E
 
-```text
-/ws claim
-/ws claim all
-/ws claim ODR-...
-/ws claim MKT-...
-/ws claim CLM-...
-/ws claim MCL-...
+    E -->|是| F[玩家背包]
+    E -->|否| G["游戏信箱<br/>/ws mailbox"]
+    G --> F
 ```
 
-## 3. token 与编号前缀
+## 2. 相关命令
 
-| 前缀 | 含义 |
-| --- | --- |
-| `ODR-` | 官方订单号 |
-| `MKT-` | 市场交易号 |
-| `CLM-` | 官方订单领取 token |
-| `MCL-` | 市场成交领取 token |
+```text
+/ws claim [all|ODR-|MKT-|CLM-|MCL-]  #领取待发货物品
+/ws mailbox  #打开信箱GUI菜单
+/ws mailbox collect  #一键领取信箱物品
+```
 
-`CLM-` / `MCL-` token 由 16 位可分享码组成，字符集不包含易混淆字符（例如 `I`、`O`）。
+## 3. 共享领取开关
 
-## 4. 共享领取开关
-
-配置：`allow-shared-claim-command`
+由管理员配置：`allow-shared-claim-command`
 
 - `true`：允许代领
-- `false`：仅本人可领，代领报 `claim_forbidden`
+- `false`：仅本人可领，代领报错 `claim_forbidden`
 
-## 5. 信箱回退机制
-
-当背包无法接收物品时，系统会写入游戏信箱而不是直接丢失：
-
-```text
-/ws mailbox claim
-```
-
-## 6. 常见错误码
+## 4. 常见错误码
 
 | 错误码 | 说明 |
 | --- | --- |
@@ -77,9 +58,8 @@ sidebar_position: 5
 <details>
   <summary>如果你一直领不到，先做这 4 步</summary>
 
-1. 检查 token 是否完整（含前缀）。
-2. 优先尝试 `/ws claim all`。
-3. 背包留空格后再领一次。
-4. 仍失败时联系服主核查该订单/交易状态是否已变更。
+1. 优先尝试 `/ws claim all`。
+2. 检查背包是否有空位。
+2. 仍失败时联系服主核查该订单/交易状态是否已变更。
 
 </details>

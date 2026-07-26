@@ -15,22 +15,34 @@ sidebar_position: 4
 
 ```text
 /ws help
+/ws home
 /ws password <newPassword>
 /ws market
 /ws market gui
 /ws market sell <price> [amount] [currency]
 /ws market logs [count]
 /ws claim [all|ODR-|MKT-|CLM-|MCL-]
-/ws mailbox claim
+/ws mailbox
+/ws mailbox collect
 ```
 
 ### 1.2 管理常用
 
 ```text
 /ws reload
-/ws redeem create <shopCoin> <gameCoin> [maxUses] [perUserMaxUses] [minutes] [code]
+/ws mode setup relay
+/ws mode switch <relay|internal|external>
+/ws recharge fix <orderId>
+/ws gamecoin <用户|UUID|ID> <±数量> [原因]
+/ws shopcoin <用户|UUID|ID> <±数量> [原因]
 /ws market recalc-tags [active|all]
 ```
+
+:::info[v3 命令变化]
+
+`/ws mailbox claim` 已改为 `/ws mailbox collect`。兑换码在 v3 中由 Web 后台管理，不再把旧版 `/ws redeem create ...` 作为当前游戏命令。
+
+:::
 
 ## 2. Bukkit 权限节点
 

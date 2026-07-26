@@ -11,8 +11,8 @@ sidebar_position: 2
 
 ## 1. 环境要求
 
-- **Java版本**：运行需要 `Java 21` 或更高版本（构建编译推荐使用 `JDK 25`）。
-- **Minecraft 服务端**：`Paper 1.20.6+`（兼容 Spigot / Purpur 等常见服务端）。
+- **Java 运行版本**：跟随 Minecraft 服务端自身要求；插件主体以 Java 8 目标兼容构建，不能据“推荐 JDK 25 构建源码”推断服务器必须使用 Java 25。
+- **Minecraft 服务端**：发布包包含多个 Bukkit/NMS 适配；以发布说明列出的版本为准。当前源码包含从旧版 Bukkit 到 1.21.x/26.1 的适配模块。
 - **前置依赖**：必须同目录安装 [WebShopX 主插件](https://modrinth.com/plugin/webshopx)。
 - **网络连接**：服务器需要具备访问微信、支付宝、PayPal、MercadoPago 等接口的网络能力。如在中国大陆服务器部署且使用 PayPal / MercadoPago 通道，建议在后端配置中启用代理。
 
@@ -27,10 +27,10 @@ sidebar_position: 2
 1. 启动一次服务器。
 2. 插件加载后，检测到无配置文件，会自动在服务器根目录下生成以下两个关键配置路径：
    - **`plugins/WebShopX-Payments/config.yml`**：用于控制 Bukkit 插件端支付通道开关与 API 超时。
-   - **`plugins/WebShopX-Payments/backend/config.json`**：用于存放支付平台各接口（微信、支付宝、PayPal、MercadoPago等）的敏感商户凭据及证书信息。
+   - **`plugins/WebShopX-Payments/backend/config.json`**：用于存放支付平台各接口的敏感商户凭据及证书信息。
 
 ### (3) 编辑并修改配置
-1. 打开 `plugins/WebShopX-Payments/config.yml`，启用您需要使用的支付渠道（如将 `paypal` 或 `wechat` 的 `enable` 项设为 `true`）。
+1. 打开 `plugins/WebShopX-Payments/config.yml`，启用需要的支付渠道；v3 也可以从 WebShopX 的 Provider 设置页维护插件公开的配置项。
 2. 打开 `plugins/WebShopX-Payments/backend/config.json`，填入对应渠道的商户号、密钥或证书文件路径。
    :::tip[关于密钥路径]
    对于微信 Native 或支付宝官方接口，建议将证书/私钥文件存放在 `plugins/WebShopX-Payments/backend/secrets/` 目录下，并在 `config.json` 中使用 `file:secrets/wechat/apiclient_key.pem` 或 `file:secrets/alipay/private.txt` 的相对路径指向它们。

@@ -48,7 +48,7 @@ sidebar_position: 6
 
 若物品无法直接放入背包（如背包满），会进入 `mailbox_items` 待领取：
 
-- 玩家使用 `/ws mailbox claim` 批量领取
+- 玩家使用 `/ws mailbox` 打开 GUI，或 `/ws mailbox collect` 批量收取
 - 后台可通过通知模板提醒玩家
 
 ## 6. 退款策略（官方订单 + 市场订单）

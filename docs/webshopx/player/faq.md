@@ -49,7 +49,7 @@ BUY 单语义是“收购需求单”，必须由卖家履约。普通购买路�
 背包满、离线或自动发货失败时，物品可能进入：
 
 - `WAIT_CLAIM`（用 `/ws claim`）
-- 游戏信箱（用 `/ws mailbox claim`）
+- 游戏信箱（用 `/ws mailbox` 查看，或 `/ws mailbox collect` 快速收取）
 
 ## 8. 为什么 `GAME_COIN` 兑换报错？
 
