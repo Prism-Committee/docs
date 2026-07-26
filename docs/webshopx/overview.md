@@ -27,7 +27,7 @@ WebShopX 是面向 Paper、Purpur、Spigot 与 Folia 服务端的 Web 商城系�
 WebShopX 核心负责商城、资产、订单和业务状态。WebShopX-Payments 是独立的可选支付扩展，用于连接具体支付渠道。
 
 - 只使用游戏内经济或不需要在线支付：不必安装 WebShopX-Payments；
-- 需要充值渠道：阅读 [WebShopX-Payments 文档](/docs/category/webshopx-payments)；
+- 需要充值渠道：阅读 [WebShopX-Payments 文档](../webshopx-payments/overview)；
 - 开发自己的支付 Provider：阅读 [Payment Provider API](./webshopx-payment-api)。
 
 ## 文档维护原则
