@@ -1,47 +1,28 @@
 ---
 id: overview
-title: Overview
-sidebar_label: Overview
+title: Server Administrator Entry
+sidebar_label: Administrator Entry
 sidebar_position: 1
 ---
 
-# WebShopX Server Administrator Guide
+# Server Administrator Entry
 
-This section is for plugin installers, server operators, and WebShopX administrators.
+This page remains for compatibility with older links. The primary navigation now separates server-owner work into two stages:
 
-## Recommended Reading Path
+- **Get started** for first installation, deployment, and migration.
+- **Administration** for post-deployment configuration, governance, operations, and troubleshooting.
 
-1. [Install and Deploy](./install-deploy)
-2. [Configuration](./configuration)
-3. [Commands and Permissions](./commands-permissions)
-4. [Relay Access](./relay-access)
-5. [Market Governance](./market-governance)
-6. [Inventory Operations](./inventory-operations)
-7. [Delivery and Refund Operations](./delivery-and-refund-ops)
-8. [v2 to v3 Migration](./v2-to-v3-migration)
-9. [FAQ](./faq)
+## First deployment
 
-## Deployment Components
+Start with [Install and Deploy](./install-deploy). If upgrading an older installation, also read [v2 to v3 Migration](./v2-to-v3-migration).
 
-| Component | Purpose |
-| --- | --- |
-| WebShopX plugin | Core business logic, HTTP API, optional built-in web UI |
-| SQLite | Default single-server database; requires `cluster.role=standalone` |
-| MySQL / MariaDB | Recommended for production or multi-server deployments |
-| Vault (optional) | Connects `GAME_COIN` to the game economy |
-| Redis (optional) | Cluster config refresh and market broadcast |
-| WebShopX Relay (optional) | Public access without exposing the server web port directly |
-| WebShopX-Payments (optional) | Online payment-channel extension |
+## After launch
 
-## High-Priority Checks
+- [Configuration](./configuration)
+- [Market Governance](./market-governance)
+- [Operations and Troubleshooting](./operations)
+- [FAQ](./faq)
 
-1. Replace or disable the default `admin-bootstrap` account after first login.
-2. Never expose database, Relay, or payment credentials in public repositories or screenshots.
-3. SQLite is standalone-only.
-4. Use HTTPS and a reverse proxy for public deployments.
-5. Offline playerdata writes are experimental and should stay disabled unless explicitly required and tested.
-6. Back up both the database and `plugins/WebShopX/` before upgrades.
+For exact commands, permissions, and HTTP protocol behavior, use [Reference](../reference/overview).
 
-## Configuration Responsibility
-
-In v3, `config.yml` mainly stores local deployment, security, database, and cluster parameters. Business rules such as market fees, currencies, and leaderboard settings should normally be managed in the web admin panel instead of duplicated in local YAML.
+Older Relay, inventory-operations, and delivery/refund topic pages remain accessible for compatibility, while their core guidance has been consolidated into the main deployment and operations pages.
