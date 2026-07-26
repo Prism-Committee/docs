@@ -14,7 +14,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Get started"
   title="Install WebShopX and choose a web deployment mode"
-  description="Use this page for the first installation, database setup, and web mode selection. For a first test, start with SQLite + internal; use relay when you want managed public hosting."
+  description="Complete the first installation, database setup, and web mode selection. For a first test, start with SQLite + internal; use relay when you want managed public hosting."
   primary={{label: 'First startup', to: '#first-startup'}}
   secondary={{label: 'Relay Public Access', to: './relay-access'}}
 />
