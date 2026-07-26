@@ -7,7 +7,7 @@ sidebar_position: 4
 
 # Inventory, Claims, and Mailbox
 
-This page answers one common question: **where did my item go after a transaction?**
+After a transaction, items may go directly to inventory, wait for manual claim, or fall back to the mailbox.
 
 ## Delivery flow
 
