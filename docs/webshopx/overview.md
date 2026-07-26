@@ -31,18 +31,6 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
   {icon: '📚', title: '精确查参数', description: '查询命令、错误码、协议和其他 Reference 内容。', to: './reference/overview'},
 ]} />
 
-## 文档怎么组织
-
-<FeatureCards items={[
-  {title: 'Get started', description: '只解决第一次成功使用、部署和迁移。'},
-  {title: 'Guides', description: '按实际任务组织玩家和日常使用流程。'},
-  {title: 'Administration', description: '面向服主、运维和后台管理员。'},
-  {title: 'Development', description: '面向 HTTP API 和插件开发者。'},
-  {title: 'Reference', description: '需要精确参数时直接查表，不承担教程职责。'},
-]} />
-
-这套结构刻意不与仓库里的 `player/`、`admin/`、`developer/` 文件夹一一对应。文件夹服务于维护，侧栏服务于读者。
-
 ## 当前文档基线
 
 :::info
