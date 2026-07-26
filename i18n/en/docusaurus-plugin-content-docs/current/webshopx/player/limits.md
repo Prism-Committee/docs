@@ -7,7 +7,7 @@ sidebar_position: 10
 
 # Listing Limits
 
-> This page answers one question: why you sometimes cannot list normally.
+> Listing checks explain why a market listing may be rejected.
 
 ## 1. Understand One Thing First
 
@@ -54,4 +54,3 @@ This permission effectively means "bypass market risk control." Recommend only f
 
 1. When errors happen, send "error code + what you were doing" to admins for fastest help.
 2. If listing worked today but not tomorrow, it is usually server-rule updates, not your operation mistake.
-
