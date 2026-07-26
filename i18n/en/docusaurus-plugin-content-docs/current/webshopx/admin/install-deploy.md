@@ -53,17 +53,17 @@ Replace or disable the default administrator immediately after initialization.
 ## Deployment Modes
 
 <Tabs groupId="webshopx-deployment-mode">
-  <TabItem value="internal" label="internal" default>
+<TabItem value="internal" label="internal" default>
 
 WebShopX serves both API and built-in static web pages. This is the simplest deployment mode and the best choice for a first test.
 
-  </TabItem>
-  <TabItem value="external" label="external">
+</TabItem>
+<TabItem value="external" label="external">
 
 WebShopX serves the API while static files are hosted by Nginx/CDN or another web server. Configure `webshop.embedded-http.public-api-url`, CORS only when required, HTTPS, and reverse proxy rules.
 
-  </TabItem>
-  <TabItem value="relay" label="relay">
+</TabItem>
+<TabItem value="relay" label="relay">
 
 WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not need to expose the web port directly.
 
@@ -88,7 +88,7 @@ Recommended first setup:
 
 Plan prices and allowances may change, so confirm the current values in the panel before activation or purchase. See [Relay Public Access](./relay-access) for account, project, binding, plans, security, and troubleshooting guidance.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## SQLite
