@@ -14,7 +14,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Get started"
   title="安装 WebShopX，并选择合适的 Web 部署模式"
-  description="本页用于完成首次安装、数据库准备与 Web 模式选择。第一次体验优先使用 SQLite + internal；需要公网托管时再考虑 relay。"
+  description="完成首次安装、数据库准备与 Web 模式选择。第一次体验优先使用 SQLite + internal；需要公网托管时再考虑 relay。"
   primary={{label: '最快部署', to: '#3-最快部署sqlite--internal'}}
   secondary={{label: 'Relay 公网访问', to: './relay-access'}}
 />
