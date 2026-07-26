@@ -71,37 +71,10 @@ Relay 并不要求必须先获得兑换码。当前可以通过以下方式开�
 :::
 
 <PlanCards items={[
-  {
-    name: '体验版',
-    price: '¥0',
-    period: '5 天',
-    description: '首次测试与验证',
-    badge: '每用户一次',
-    features: ['1 GB 周期流量', '100,000 API 请求', '256 MB 缓存空间'],
-  },
-  {
-    name: '轻量版',
-    price: '¥6',
-    period: '30 天',
-    description: '低频使用或约 10 人以下小服',
-    features: ['5 GB 周期流量', '200,000 API 请求', '1 GB 缓存空间'],
-  },
-  {
-    name: '标准版',
-    price: '¥10',
-    period: '30 天',
-    description: '稳定运营的中型服务器',
-    badge: '推荐',
-    highlighted: true,
-    features: ['10 GB 周期流量', '600,000 API 请求', '1 GB 缓存空间'],
-  },
-  {
-    name: '进阶版',
-    price: '¥20',
-    period: '30 天',
-    description: '访问量较高或资源较多的服务器',
-    features: ['40 GB 周期流量', '3,000,000 API 请求', '2 GB 缓存空间'],
-  },
+  {name: '体验版', price: '¥0', period: '5 天', description: '首次测试与验证', badge: '每用户一次', features: ['1 GB 周期流量', '100,000 API 请求', '256 MB 缓存空间']},
+  {name: '轻量版', price: '¥6', period: '30 天', description: '低频使用或约 10 人以下小服', features: ['5 GB 周期流量', '200,000 API 请求', '1 GB 缓存空间']},
+  {name: '标准版', price: '¥10', period: '30 天', description: '稳定运营的中型服务器', badge: '推荐', highlighted: true, features: ['10 GB 周期流量', '600,000 API 请求', '1 GB 缓存空间']},
+  {name: '进阶版', price: '¥20', period: '30 天', description: '访问量较高或资源较多的服务器', features: ['40 GB 周期流量', '3,000,000 API 请求', '2 GB 缓存空间']},
 ]} />
 
 :::tip
@@ -111,22 +84,10 @@ Relay 并不要求必须先获得兑换码。当前可以通过以下方式开�
 ## 3. 推荐接入流程
 
 <Steps items={[
-  {
-    title: '准备 Relay 账号和服务',
-    children: <>打开 <a href="https://47.122.127.164/">官方 Relay 服务面板</a>，注册或登录账号。进入“开通服务”，首次使用可领取一次 5 天体验版，也可以直接自助购买套餐；持有兑换码时也可以按面板提示兑换。最后确认账号下已有可使用的项目或服务实例。</>,
-  },
-  {
-    title: '从游戏内发起授权',
-    children: <>以拥有 <code>webshop.admin</code> 权限的管理员身份进入服务器，执行 <code>/ws mode setup relay</code>。插件会返回可点击的安全授权链接；打开链接、登录 Relay 账号并确认授权，然后回到游戏等待完成。</>,
-  },
-  {
-    title: '确认服务器与项目关系',
-    children: <>进入 Relay 服务面板检查项目。如果出现“待绑定服务器”或要求选择项目，把当前 WebShopX 服务器关联到准备使用的项目。多服务器或多项目账号应特别核对绑定关系。</>,
-  },
-  {
-    title: '切换到 Relay 并验证',
-    children: <>回到游戏执行 <code>/ws mode switch relay</code>，再执行 <code>/ws home</code>。能够打开对应项目的公网商城页面，即说明基本接入完成。</>,
-  },
+  {title: '准备 Relay 账号和服务', children: <>打开 <a href="https://47.122.127.164/">官方 Relay 服务面板</a>，注册或登录账号。进入“开通服务”，首次使用可领取一次 5 天体验版，也可以直接自助购买套餐；持有兑换码时也可以按面板提示兑换。最后确认账号下已有可使用的项目或服务实例。</>},
+  {title: '从游戏内发起授权', children: <>以拥有 <code>webshop.admin</code> 权限的管理员身份进入服务器，执行 <code>/ws mode setup relay</code>。插件会返回可点击的安全授权链接；打开链接、登录 Relay 账号并确认授权，然后回到游戏等待完成。</>},
+  {title: '确认服务器与项目关系', children: <>进入 Relay 服务面板检查项目。如果出现“待绑定服务器”或要求选择项目，把当前 WebShopX 服务器关联到准备使用的项目。多服务器或多项目账号应特别核对绑定关系。</>},
+  {title: '切换到 Relay 并验证', children: <>回到游戏执行 <code>/ws mode switch relay</code>，再执行 <code>/ws home</code>。能够打开对应项目的公网商城页面，即说明基本接入完成。</>},
 ]} />
 
 :::warning[不要分享授权信息]
@@ -140,7 +101,7 @@ Relay 并不要求必须先获得兑换码。当前可以通过以下方式开�
 Relay 接入完成后，通常在两个位置管理：
 
 <Tabs groupId="relay-management">
-  <TabItem value="webshopx" label="游戏内 / WebShopX" default>
+<TabItem value="webshopx" label="游戏内 / WebShopX" default>
 
 用于：
 
@@ -148,8 +109,8 @@ Relay 接入完成后，通常在两个位置管理：
 - 获取当前商城入口；
 - 管理 WebShopX 自身的商品、订单、市场和管理员功能。
 
-  </TabItem>
-  <TabItem value="relay" label="Relay 服务面板">
+</TabItem>
+<TabItem value="relay" label="Relay 服务面板">
 
 用于：
 
@@ -160,7 +121,7 @@ Relay 接入完成后，通常在两个位置管理：
 - 查看当前项目的有效期、流量、请求数、缓存空间和其他权益；
 - 在需要时续费、升级或处理项目级托管操作。
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 > Relay 面板管理的是**公网托管与项目关系**，WebShopX 后台管理的是**商城业务本身**。两者不要混淆。
