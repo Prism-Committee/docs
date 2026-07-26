@@ -39,15 +39,3 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 2. 本 Reference 指向的精确文档；
 3. Guides / Administration / Development 中的任务型教程；
 4. README、旧截图或第三方教程。
-
-## Reference 页面应该长什么样
-
-Reference 页面优先提供：
-
-- 精确名称；
-- 参数、字段、状态和默认值；
-- 可搜索表格；
-- 兼容性说明；
-- 必要但简短的行为约束。
-
-它们不应该重复大段“如何完成某个任务”的教程，从而避免同一事实维护两份。
