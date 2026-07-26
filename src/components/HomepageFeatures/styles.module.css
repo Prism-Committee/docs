@@ -1,11 +1,156 @@
-.features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+.projectsSection {
+  padding: 4.5rem 0 3.25rem;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.sectionHeading {
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.sectionEyebrow {
+  display: inline-block;
+  margin-bottom: .55rem;
+  color: var(--ifm-color-primary);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.sectionHeading h2 {
+  margin-bottom: .55rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -.025em;
+}
+
+.sectionHeading p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.02rem;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.projectCard {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 18px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .045);
+}
+
+.projectTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.projectIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 1.45rem;
+}
+
+.projectBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .62rem;
+  border-radius: 999px;
+  background: var(--ifm-color-primary-contrast-background);
+  color: var(--ifm-color-primary-darkest);
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.projectCard h3 {
+  margin-bottom: .6rem;
+  font-size: 1.45rem;
+}
+
+.projectCard p {
+  margin-bottom: 1.4rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.7;
+}
+
+.projectActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: auto;
+}
+
+.siteSection {
+  padding: 1.25rem 0 4.5rem;
+}
+
+.siteGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.siteItem {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: .85rem;
+  padding: .75rem .25rem;
+}
+
+.siteItem > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  font-weight: 800;
+}
+
+.siteItem strong {
+  display: block;
+  margin-bottom: .28rem;
+  font-size: .98rem;
+}
+
+.siteItem p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .projectsSection {
+    padding-top: 3.2rem;
+  }
+
+  .projectGrid,
+  .siteGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCard {
+    min-height: 0;
+  }
+
+  .siteSection {
+    padding-bottom: 3rem;
+  }
 }
