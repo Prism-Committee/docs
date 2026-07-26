@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # HTTP API Reference
 
-本页集中放置所有 API 客户端都需要查的公共约定。具体业务接口请分别查看 Player、Market 和 Admin API。
+所有 WebShopX API 客户端共用的协议约定集中在这里。具体业务接口请分别查看 Player、Market 和 Admin API。
 
 ## 1. 服务与地址
 
@@ -118,7 +118,7 @@ POST /api/admin/auth/logout
 
 - `MarketSide`: `SELL` / `BUY`
 - `TradeMode`: `DIRECT` / `AUCTION`
-- `SupplyMode`: `MANUAL` / `SUPPLY`
+- `SourceMode`: `MANUAL` / `SUPPLY`
 
 ### 拍卖算法
 
