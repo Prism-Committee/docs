@@ -10,25 +10,32 @@ sidebar_position: 1
 
 **WebShopX** 是面向 Paper、Purpur、Spigot 与 Folia 服务端的 Web 商城系统，包含官方商城、玩家市场、钱包、订单与发货、充值和管理后台。
 
-根据你的角色进入对应文档：
+不要先判断“我属于哪种角色”，直接按你现在要完成的任务进入：
 
-- **玩家**：从 [玩家指南](./category/player-guide) 开始，了解登录、购买、市场、钱包、背包与领取。
-- **服务器管理员**：从 [服务器管理员](./category/server-admin) 开始，完成安装、部署、配置、升级和运维。
-- **开发者**：从 [开发者文档](./category/webshopx-developer) 开始，查看 HTTP API、认证与支付 Provider 集成。
+- **第一次使用或部署**：[Get started](./category/webshopx-get-started)
+- **购买、交易、钱包、背包与拍卖**：[Guides](./category/webshopx)
+- **服务器配置、治理和运维**：[Administration](./category/webshopx-administration)
+- **HTTP API / 插件集成**：[Development](./category/webshopx-development)
+- **查命令、错误码和精确协议**：[Reference](./webshopx/reference/overview)
+
+也可以先打开 [WebShopX Overview](./webshopx/webshopx-overview) 查看完整阅读地图。
 
 ## WebShopX-Payments
 
-**WebShopX-Payments** 是 WebShopX 的独立支付扩展插件，用于接入官方或第三方支付渠道。
+**WebShopX-Payments** 是 WebShopX 的独立支付扩展插件，用于接入具体支付渠道。
 
 - [WebShopX-Payments 文档](./category/webshopx-payments)
-- 第三方插件作者如需实现自己的支付 Provider，请阅读 [WebShopXPaymentApi 接入指南](./webshopx/webshopx-payment-api)
+- 开发第三方支付 Provider：[WebShopXPaymentApi](./webshopx/webshopx-payment-api)
 
-## 文档使用原则
+## 文档设计原则
 
-1. 教程页面回答“怎样完成一件事”。
-2. 配置、命令和 API 页面以当前 WebShopX 实现为准。
-3. 标记为测试或实验性的功能，不应视为所有稳定版本都默认可用。
-4. 遇到问题时先查看对应角色目录下的 FAQ / 排障章节。
+1. **Get started** 让用户第一次成功完成任务；
+2. **Guides** 解决实际使用流程；
+3. **Administration** 负责服务器运营和故障处理；
+4. **Development** 面向二次开发；
+5. **Reference** 只负责精确查表，避免重复维护事实。
+
+标记为测试或实验性的功能，不应视为所有稳定版本都默认可用。
 
 ## 反馈
 
