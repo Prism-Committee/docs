@@ -13,8 +13,6 @@ const repositoryName = repository.split('/')[1] ?? 'docs';
 const isUserOrOrgPagesRepo = repositoryName.endsWith('.github.io');
 const githubPagesUrl = `https://${repositoryOwner}.github.io`;
 const githubPagesBaseUrl = isUserOrOrgPagesRepo ? '/' : `/${repositoryName}/`;
-const currentLocale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'zh-CN';
-const isZh = currentLocale === 'zh-CN';
 
 const config: Config = {
   title: "Prism's Docs",
@@ -25,15 +23,11 @@ const config: Config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://docs.akihito.dpdns.org',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
   stylesheets: [
     {
@@ -45,16 +39,11 @@ const config: Config = {
     },
   ],
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Prism-Committee', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'Prism-Committee',
+  projectName: 'docs',
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-CN',
     locales: ['zh-CN', 'en'],
@@ -69,8 +58,6 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/Prism-Committee/docs/tree/main/',
         },
@@ -80,11 +67,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/Prism-Committee/docs/tree/main/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -97,7 +81,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -106,16 +89,16 @@ const config: Config = {
       title: "Prism's Docs",
       logo: {
         alt: "Prism-Committee's Docs Logo",
-        src: "img/logo.png",
+        src: 'img/logo.png',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: isZh ? '文档' : 'Docs',
+          label: '文档',
         },
-        {to: '/blog', label: isZh ? '博客' : 'Blog', position: 'left'},
+        {to: '/blog', label: '博客', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
@@ -131,16 +114,16 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: isZh ? '文档' : 'Docs',
+          title: '文档',
           items: [
             {
-              label: isZh ? '快速开始' : 'Getting Started',
+              label: '快速开始',
               to: '/intro',
             },
           ],
         },
         {
-          title: isZh ? '友情链接' : 'Links',
+          title: '友情链接',
           items: [
             {
               label: 'Modrinth',
@@ -161,10 +144,10 @@ const config: Config = {
           ],
         },
         {
-          title: isZh ? '更多' : 'More',
+          title: '更多',
           items: [
             {
-              label: isZh ? '博客' : 'Blog',
+              label: '博客',
               to: '/blog',
             },
             {
@@ -184,8 +167,3 @@ const config: Config = {
 };
 
 export default config;
-
-
-
-
-
