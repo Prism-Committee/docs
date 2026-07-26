@@ -9,7 +9,7 @@ sidebar_position: 4
 
 交易完成后，物品可能直接进入背包，也可能等待手动领取或进入游戏信箱。
 
-## 1. 先理解物品流转
+## 1. 物品流转
 
 ```mermaid
 flowchart LR
