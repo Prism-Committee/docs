@@ -39,10 +39,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: isZh ? 'Guides · 使用指南' : 'Guides',
-          link: {
-            type: 'doc',
-            id: 'webshopx/guides/guides-overview',
-          },
+          link: {type: 'doc', id: 'webshopx/guides/guides-overview'},
           items: [
             {type: 'doc', id: 'webshopx/player/shop-and-orders'},
             {type: 'doc', id: 'webshopx/player/wallet-and-exchange'},
@@ -91,10 +88,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Reference',
-          link: {
-            type: 'doc',
-            id: 'webshopx/reference/reference-overview',
-          },
+          link: {type: 'doc', id: 'webshopx/reference/overview'},
           items: [
             {type: 'doc', id: 'webshopx/admin/commands-permissions'},
             {type: 'doc', id: 'webshopx/reference/http-api-reference'},
