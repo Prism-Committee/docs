@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # Installation & Deployment
 
-This section guides you through installing the `WebShopX-Payments` plugin on your Minecraft server, launching the embedded payment service, and setting up a seamless integration with the core storefront plugin `WebShopX`.
+Install `WebShopX-Payments` on the Minecraft server, launch the embedded payment service, and connect it to the core `WebShopX` storefront plugin.
 
 ## 1. Environment Requirements
 
