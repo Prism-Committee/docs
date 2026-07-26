@@ -12,7 +12,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 <DocHero
   eyebrow="Development"
   title="Make your first WebShopX API call"
-  description="This page keeps the shortest integration path: find the API, verify health, log in, complete one read and one write, then continue to the API family you need."
+  description="Follow the shortest integration path: find the API, verify health, log in, complete one read and one write, then continue to the API family you need."
   primary={{label: 'HTTP API Reference', to: '../reference/http-api-reference'}}
   secondary={{label: 'Player API', to: './player-api'}}
 />
