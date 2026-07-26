@@ -28,6 +28,19 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'webshopx/guides/inventory-and-delivery'},
             {type: 'doc', id: 'webshopx/guides/auctions-and-pricing'},
             {type: 'doc', id: 'webshopx/player/faq'},
+            {
+              type: 'category',
+              label: '深入了解',
+              collapsed: true,
+              items: [
+                {type: 'doc', id: 'webshopx/player/inventory'},
+                {type: 'doc', id: 'webshopx/player/claim-and-mailbox'},
+                {type: 'doc', id: 'webshopx/player/auctions'},
+                {type: 'doc', id: 'webshopx/player/dynamic-pricing'},
+                {type: 'doc', id: 'webshopx/player/limits'},
+                {type: 'doc', id: 'webshopx/player/algorithm'},
+              ],
+            },
           ],
         },
         {
@@ -39,6 +52,17 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'webshopx/admin/governance'},
             {type: 'doc', id: 'webshopx/admin/operations'},
             {type: 'doc', id: 'webshopx/admin/faq'},
+            {
+              type: 'category',
+              label: '高级专题',
+              collapsed: true,
+              items: [
+                {type: 'doc', id: 'webshopx/admin/relay-access'},
+                {type: 'doc', id: 'webshopx/admin/inventory-operations'},
+                {type: 'doc', id: 'webshopx/admin/delivery-refund-ops'},
+                {type: 'doc', id: 'webshopx/admin/visual-resources'},
+              ],
+            },
           ],
         },
         {
@@ -51,6 +75,18 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'webshopx/developer/market-api'},
             {type: 'doc', id: 'webshopx/developer/admin-api'},
             {type: 'doc', id: 'webshopx/webshopx-payment-api'},
+            {
+              type: 'category',
+              label: '专题参考',
+              collapsed: true,
+              items: [
+                {type: 'doc', id: 'webshopx/developer/api-basics'},
+                {type: 'doc', id: 'webshopx/developer/authentication'},
+                {type: 'doc', id: 'webshopx/developer/errors-and-idempotency'},
+                {type: 'doc', id: 'webshopx/developer/uploads-and-static-assets'},
+                {type: 'doc', id: 'webshopx/developer/integration-playbook'},
+              ],
+            },
           ],
         },
         {
