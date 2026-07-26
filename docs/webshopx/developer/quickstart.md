@@ -5,9 +5,17 @@ sidebar_label: Developer Quickstart
 sidebar_position: 1
 ---
 
+import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
+
 # Developer Quickstart
 
-这页目标只有一个：让你在最短路径内完成一次 WebShopX API 调用，并知道后续该去哪里。
+<DocHero
+  eyebrow="Development"
+  title="完成你的第一次 WebShopX API 调用"
+  description="这页只解决最短接入路径：找到 API、确认健康状态、登录、完成一次读取和一次写入，然后知道下一步该看哪里。"
+  primary={{label: 'HTTP API Reference', to: '../reference/http-api-reference'}}
+  secondary={{label: 'Player API', to: './player-api'}}
+/>
 
 ## 1. API 在哪里
 
@@ -86,6 +94,10 @@ Content-Type: application/json
 
 对于创建订单、交易、兑换、出价等写操作，客户端应主动生成稳定的 `idempotencyKey`，并在网络超时重试时复用同一个键。
 
+:::warning[写操作必须考虑幂等]
+涉及资产、库存、订单或市场状态的请求，不要在超时后无条件生成新键重试。对同一个用户动作应复用同一个 `idempotencyKey`。
+:::
+
 ## 6. 错误处理
 
 业务错误通常包含稳定错误码：
@@ -110,12 +122,12 @@ Content-Type: application/json
 
 ## 7. 下一步
 
-按你要实现的能力继续阅读：
-
-- [Player API](./player-api)：钱包、商品、订单、通知和排行榜；
-- [Market API](./market-api)：挂单、购买、出售、拍卖和市场设置；
-- [Admin API](./admin-api)：商品、订单、经济、市场治理、用户支持与审计；
-- [WebShopXPaymentApi](../webshopx-payment-api)：开发 Bukkit/Paper 侧第三方支付 Provider。
+<FeatureCards items={[
+  {icon: '👤', title: 'Player API', description: '钱包、商品、订单、通知和排行榜。', to: './player-api'},
+  {icon: '📈', title: 'Market API', description: '挂单、购买、出售、拍卖和市场设置。', to: './market-api'},
+  {icon: '🛡️', title: 'Admin API', description: '商品、订单、经济、市场治理、用户支持与审计。', to: './admin-api'},
+  {icon: '💳', title: 'WebShopXPaymentApi', description: '开发 Bukkit/Paper 侧第三方支付 Provider。', to: '../webshopx-payment-api'},
+]} />
 
 ## 8. 上线前最低回归
 
