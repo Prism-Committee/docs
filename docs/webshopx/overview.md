@@ -1,5 +1,6 @@
 ---
 id: webshopx-overview
+slug: /webshopx/overview
 title: WebShopX Overview
 sidebar_label: Overview
 sidebar_position: 0
