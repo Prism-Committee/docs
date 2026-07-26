@@ -5,9 +5,17 @@ sidebar_label: Developer Quickstart
 sidebar_position: 1
 ---
 
+import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
+
 # Developer Quickstart
 
-Use this page to make a first WebShopX API call and understand where to go next.
+<DocHero
+  eyebrow="Development"
+  title="Make your first WebShopX API call"
+  description="This page keeps the shortest integration path: find the API, verify health, log in, complete one read and one write, then continue to the API family you need."
+  primary={{label: 'HTTP API Reference', to: '../reference/http-api-reference'}}
+  secondary={{label: 'Player API', to: './player-api'}}
+/>
 
 ## Find the API
 
@@ -66,6 +74,10 @@ Content-Type: application/json
 
 Use stable idempotency keys for writes with money, inventory, or order side effects, and reuse the same key when retrying the same user action after a timeout.
 
+:::warning[Writes must be idempotent]
+For requests that change assets, inventory, orders, or market state, do not generate a new key for every timeout retry. Reuse the same `idempotencyKey` for the same user action.
+:::
+
 ## Error handling
 
 Prefer the stable `error` field over natural-language `message` text. Common global errors include `auth_required`, `auth_invalid`, `bad_request`, and `forbidden`.
@@ -74,7 +86,9 @@ See [HTTP API Reference](../reference/http-api-reference) for shared protocol co
 
 ## Continue
 
-- [Player API](./player-api)
-- [Market API](./market-api)
-- [Admin API](./admin-api)
-- [WebShopXPaymentApi](../webshopx-payment-api)
+<FeatureCards items={[
+  {icon: '👤', title: 'Player API', description: 'Wallet, products, orders, notifications, and leaderboard.', to: './player-api'},
+  {icon: '📈', title: 'Market API', description: 'Listings, purchases, selling, auctions, and market settings.', to: './market-api'},
+  {icon: '🛡️', title: 'Admin API', description: 'Products, orders, economy, governance, support, and audit.', to: './admin-api'},
+  {icon: '💳', title: 'WebShopXPaymentApi', description: 'Build a third-party Bukkit/Paper payment provider.', to: '../webshopx-payment-api'},
+]} />
