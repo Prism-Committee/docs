@@ -11,7 +11,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '开始使用',
-          key: 'webshopx-get-started',
           link: {type: 'doc', id: 'webshopx/player/quick-start'},
           items: [
             {type: 'doc', id: 'webshopx/player/quick-start'},
@@ -22,7 +21,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '使用指南',
-          key: 'webshopx-guides',
           link: {type: 'doc', id: 'webshopx/guides/guides-overview'},
           items: [
             {type: 'doc', id: 'webshopx/player/shop-and-orders'},
@@ -35,7 +33,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '服务器管理',
-          key: 'webshopx-administration',
           link: {type: 'doc', id: 'webshopx/admin/overview'},
           items: [
             {type: 'doc', id: 'webshopx/admin/configuration'},
@@ -47,7 +44,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '开发',
-          key: 'webshopx-development',
           link: {type: 'doc', id: 'webshopx/developer/developer-quickstart'},
           items: [
             {type: 'doc', id: 'webshopx/developer/developer-quickstart'},
@@ -60,7 +56,6 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '参考',
-          key: 'webshopx-reference',
           link: {type: 'doc', id: 'webshopx/reference/overview'},
           items: [
             {type: 'doc', id: 'webshopx/admin/commands-permissions'},
