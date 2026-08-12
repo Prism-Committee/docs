@@ -26,8 +26,7 @@ const config: Config = {
     [
       'docusaurus-plugin-copy-page-button',
       {
-        placement: 'article',
-        enabledActions: ['copy'],
+        injectButton: false,
         generateMarkdownRoutes: true,
       },
     ],

@@ -66,13 +66,16 @@ const allMarkdownFiles = await findMarkdownFiles(outputDirectory);
 const documentationChecks = await Promise.all(
   allMarkdownFiles.map((file) => isDocumentationPage(file)),
 );
+const documentationFiles = allMarkdownFiles.filter(
+  (_file, index) => documentationChecks[index],
+);
 const defaultLocaleFiles = allMarkdownFiles.filter(
   (file, index) =>
     !isExcludedLocale(path.relative(outputDirectory, file)) &&
     documentationChecks[index],
 );
 const excludedMarkdownFiles = allMarkdownFiles.filter(
-  (file) => !defaultLocaleFiles.includes(file),
+  (file) => !documentationFiles.includes(file),
 );
 
 await Promise.all(excludedMarkdownFiles.map((file) => unlink(file)));
@@ -114,5 +117,5 @@ const llmsIndex = [
 await writeFile(path.join(outputDirectory, 'llms.txt'), llmsIndex, 'utf8');
 
 console.log(
-  `Generated llms.txt with ${documents.length} Chinese documents; removed ${excludedMarkdownFiles.length} non-Chinese or non-document Markdown routes.`,
+  `Generated llms.txt with ${documents.length} Chinese documents; preserved ${documentationFiles.length} localized Markdown routes and removed ${excludedMarkdownFiles.length} non-document routes.`,
 );
