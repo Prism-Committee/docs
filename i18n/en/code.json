@@ -1,0 +1,14 @@
+{
+  "copyPageButton.idle": {
+    "message": "Copy page as Markdown"
+  },
+  "copyPageButton.copying": {
+    "message": "Copying…"
+  },
+  "copyPageButton.success": {
+    "message": "Copied"
+  },
+  "copyPageButton.error": {
+    "message": "Copy failed"
+  }
+}
