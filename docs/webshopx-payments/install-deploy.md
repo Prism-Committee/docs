@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # 安装与部署
 
-本节指导您如何在 Minecraft 服务器中安装 `WebShopX-Payments` 插件，启动内嵌支付服务，并实现与主商城插件 `WebShopX` 的无缝联动。
+本节说明如何在 Minecraft 服务器中安装 `WebShopX-Payments`、启动内嵌支付服务，并与 `WebShopX` 连接。
 
 ## 1. 环境要求
 
@@ -86,5 +86,5 @@ sequenceDiagram
 ```
 
 :::note[事务失败容灾]
-如果在上述第 **14** 步回调发货时，`WebShopX` 的入账监听器因为临时数据库挂起等原因执行失败，该笔已成功付款的交易会在 `wsxpay-orders.yml` 中保留为待确认状态，并在稍后不断发起重试，直到发货逻辑完全成功为止，从而确保不会漏单。
+如果支付状态通知未被业务监听器确认，记录会在 `wsxpay-orders.yml` 中保持未通知状态；插件运行期间会定时重试。该机制用于降低临时故障造成的漏通知风险，但运维人员仍应监控失败日志并核对支付平台账单与 WebShopX 账单。
 :::

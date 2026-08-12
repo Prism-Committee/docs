@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Official Payment Channels Configuration
 
-Official payment channels integrate directly with the official merchant APIs of each payment gateway, completing order pre-creation, QR code generation, and state synchronization. Because they are direct official channels, they possess absolute advantages such as **high concurrency capabilities**, **instantaneous status responses**, and **zero requirements for desktop Hook listener software**, making them the highly recommended choice for production environments.
+Official payment channels use merchant APIs to create orders, present payment codes, and synchronize status. Compared with amount-matched Hook flows, they distinguish concurrent orders by platform order ID and do not require persistent Hook software. Before production use, still test in a sandbox or with a small amount, verify callbacks, and reconcile the resulting records.
 
 ---
 

@@ -114,7 +114,7 @@ WeChat Hook v4 is developed based on the principles of the [echotrace](https://g
 ### (3) Adjusting Timeout for Database Latency
 :::warning[Critical Configuration Tweak]
 Due to the persistence mechanism of the local WeChat database, it takes **about 10 seconds or longer** for the PC client to write messages into local database files after the mobile app receives a payment notification.
-Therefore, when using the Hook v4 channel, you must increase the timeout in `config.yml` on the plugin side (we recommend 200 seconds or more); otherwise, players will easily trigger timeouts while waiting for decryption:
+Because PC WeChat can delay writing payment messages to its local database, Hook v4 processing may not begin immediately. Increase the plugin-side timeout in `config.yml` based on observed latency; 200 seconds can be used as an initial troubleshooting value and then adjusted from logs and business requirements:
 ```yaml
 # config.yml
 payment:

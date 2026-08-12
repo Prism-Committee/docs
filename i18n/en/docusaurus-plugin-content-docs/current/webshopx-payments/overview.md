@@ -9,7 +9,7 @@ sidebar_position: 1
 
 ## Feedback & Issues
 
-- Issues Repository: https://github.com/Prism-Committee/WebShopX-Issues
+- Issues Repository: https://github.com/Prism-Committee/WebShopX-Payments
 
 This directory is aimed at plugin installers, system administrators, and server operators, detailing the deployment and configuration of the `WebShopX-Payments` integration plugin.
 
@@ -44,7 +44,7 @@ This directory is aimed at plugin installers, system administrators, and server 
 
 :::warning[Critical Configuration & Pitfall Warnings]
 1. **Do not expose the embedded backend port**: The default port `62233` is used strictly for WebSocket/HTTP communications between the Bukkit plugin and the backend. The Hook receiver endpoint (`/api/hook/receive`) has no security signature validation. **Do not expose this backend port directly to the public internet!**
-2. **Amount race conditions in Hook Mode**: All Hook modes (Alipay/WeChat Hook) rely solely on the **"exact payment amount"** to match orders. **Two players cannot create Hook orders with the exact same amount at the same time** (e.g., two concurrent WeChat scan orders for 1.00 USD). Subsequent players must wait for the preceding order to complete or time out. Official enterprise merchant APIs (WeChat Native, Alipay order codes, etc.) have no such restriction.
+2. **Amount race conditions in Hook Mode**: All Hook modes (Alipay/WeChat Hook) rely solely on the **"exact payment amount"** to match orders. **Two players cannot create Hook orders with the exact same amount at the same time** (for example, two concurrent WeChat orders for CNY 1.00). Subsequent players must wait for the preceding order to complete or time out. Official merchant APIs match platform order IDs and do not have this same-amount restriction.
 3. **Secret credentials safety**: Never upload configuration files or `secrets` credential folders containing production keys, merchant private keys, or Client Secrets to any public code repositories.
 :::
 
@@ -52,7 +52,7 @@ This directory is aimed at plugin installers, system administrators, and server 
 
 1. Ensure that the core `WebShopX` plugin is deployed, initialized, and its administration panel is fully accessible.
 2. Install `WebShopX-Payments` and choose your preferred payment channel (we recommend starting with small-amount tests using PayPal Sandbox or standard WeChat/Alipay merchant QR codes).
-3. Have a player perform a test payment, and verify that the player instantaneously receives the WebShopX credit and item delivery command execution in-game upon scanning the code.
+3. Have a player perform a test payment and verify the payment state, WebShopX credit, and delivery result. Hook and asynchronous callback channels can introduce processing delay.
 4. Launch officially in your production environment.
 
 ---
@@ -72,8 +72,6 @@ This project is for **educational, research, and technical exchange purposes onl
 3. **Acceptance of Terms**  
    Using or retaining any portion of this project (including source code or compiled binaries) constitutes your reading and full acceptance of all terms in this disclaimer. **If you object to any terms, please stop using it immediately and delete all related files completely.**
 
-:::info[💡 Supplemental note on "No Commissions"]
-The "No Commissions/Fees" mentioned in the project description means that **this project never charges any middleman transaction processing fees or platform cuts**.
-
-*   **Example**: If you use Alipay's official "Face-to-Face Payment/Order Code" interface, Alipay will charge its standard 0.6% merchant processing fee. As an open-source tool, this project does not add any extra commission or hidden fees on top of it.
+:::info[💡 About "No Additional Platform Commission"]
+This means WebShopX-Payments itself does not collect a commission from transactions. Payment providers, acquirers, currency conversion, or network services may still charge fees under the merchant's agreement; confirm current rates with the relevant provider.
 :::

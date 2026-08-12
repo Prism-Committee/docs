@@ -7,7 +7,7 @@ sidebar_position: 7
 
 # 命令与权限体系
 
-`WebShopX-Payments` 提供了极其简洁的游戏内指令与权限节点，主要用于管理员进行配置热重载与运行时状态排障。
+`WebShopX-Payments` 提供游戏内指令与权限节点，主要用于配置热重载与运行时状态排障。
 
 v3 的渠道配置也可以由 WebShopX 后台通过 Provider 能力展示，但这不会改变 `/wsxpay` 的权限节点，也不代表 WebShopX 会替第三方插件完成重载。
 
