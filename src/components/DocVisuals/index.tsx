@@ -1,4 +1,4 @@
-import React, {type ReactNode} from 'react';
+import React, {type ReactNode, useEffect, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
 import {useLocation} from '@docusaurus/router';
 import styles from './styles.module.css';
@@ -203,5 +203,80 @@ export function DocHero({
         </div>
       ) : null}
     </div>
+  );
+}
+
+export function AiAccess({
+  title,
+  description,
+  indexLabel,
+  pageLabel,
+  copyLabel,
+  copiedLabel,
+  failedLabel,
+  prompt,
+}: {
+  title: string;
+  description: string;
+  indexLabel: string;
+  pageLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  failedLabel: string;
+  prompt: string;
+}) {
+  const [status, setStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
+
+  useEffect(
+    () => () => {
+      if (resetTimer.current) {
+        clearTimeout(resetTimer.current);
+      }
+    },
+    [],
+  );
+
+  const copyPrompt = async () => {
+    try {
+      await navigator.clipboard.writeText(prompt);
+      setStatus('copied');
+    } catch {
+      setStatus('failed');
+    }
+
+    if (resetTimer.current) {
+      clearTimeout(resetTimer.current);
+    }
+    resetTimer.current = setTimeout(() => setStatus('idle'), 2000);
+  };
+
+  const buttonLabel =
+    status === 'copied'
+      ? copiedLabel
+      : status === 'failed'
+        ? failedLabel
+        : copyLabel;
+
+  return (
+    <section className={styles.aiAccess}>
+      <div>
+        <span className={styles.aiEyebrow}>AI-ready docs</span>
+        <h2 className={styles.aiTitle}>{title}</h2>
+        <p className={styles.aiDescription}>{description}</p>
+        <div className={styles.aiLinks}>
+          <Link to="https://docs.akihito.dpdns.org/llms.txt">
+            {indexLabel}: /llms.txt
+          </Link>
+          <span>{pageLabel}: /path/to/page.md</span>
+        </div>
+      </div>
+      <button className={styles.aiCopyButton} type="button" onClick={copyPrompt}>
+        <span aria-hidden="true">{status === 'copied' ? '✓' : '⧉'}</span>
+        <span aria-live="polite">{buttonLabel}</span>
+      </button>
+    </section>
   );
 }
