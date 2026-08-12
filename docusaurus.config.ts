@@ -22,6 +22,16 @@ const config: Config = {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
+  plugins: [
+    [
+      'docusaurus-plugin-copy-page-button',
+      {
+        placement: 'article',
+        enabledActions: ['copy'],
+        generateMarkdownRoutes: true,
+      },
+    ],
+  ],
 
   future: {
     v4: true,
