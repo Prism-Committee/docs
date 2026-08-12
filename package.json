@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "docusaurus build && node scripts/generate-llms-index.mjs",
     "check:frontmatter": "node scripts/validate-frontmatter.mjs",
     "check:encoding": "node scripts/check-encoding.mjs",
     "check:docs": "npm run check:frontmatter && npm run check:encoding && npm run build",
@@ -24,6 +24,7 @@
     "@docusaurus/theme-mermaid": "^3.10.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "docusaurus-plugin-copy-page-button": "^0.8.4",
     "katex": "^0.16.45",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
