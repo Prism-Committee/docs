@@ -5,7 +5,7 @@ sidebar_label: Algorithm
 sidebar_position: 8
 ---
 
-# WebShopX Algorithm Handbook (Detailed)
+# WebShopX Algorithm Guide
 
 > **Document Type**: Deep Technical Manual
 
@@ -13,19 +13,19 @@ sidebar_position: 8
 
 ## Chapter 1: Core Architecture and Design Philosophy
 
-Dynamic pricing and auction algorithms move WebShopX from a traditional "static shop" toward an adaptive economy engine driven by a **demand-driven feedback** mechanism. The core goal is to automatically regulate prices and use mathematical models to hedge server inflation.
+Dynamic pricing and auction algorithms add market-pressure pricing and several bidding mechanisms alongside fixed prices. Administrators should configure price bounds from their own economy data and validate the behavior on a small set of products first.
 
 ### 1.1 Core Protection Mechanisms
 
-- **Clamping Function**: After complex calculations, all dynamic prices are finally constrained to an owner-defined safe range:
+- **Clamping Function**: When a floor or cap is configured, the calculated dynamic price is constrained to that range:
   $$P_{\text{final}} = \max(P_{\min}, \min(P_{\text{calc}}, P_{\max}))$$
-  This means prices never break through $P_{\max}$ (ceiling) or $P_{\min}$ (floor), no matter how aggressive the algorithm behaves.
-- **Transaction Traceability**: `MarketService` is deeply bound to persistence. Every order and every price evolution is logged in detail, enabling post-incident economic replay.
-- **Optimistic-Lock Concurrency**: Uses DB optimistic locking based on `version` field to prevent overselling and read-write race vulnerabilities under high-frequency trading.
+  With both bounds configured, the final price does not exceed $P_{\max}$ or fall below $P_{\min}$.
+- **Persistent Records**: Orders, trades, and price history are stored for operational investigation and economy review.
+- **Transactional Concurrency Control**: Market transactions lock and re-read relevant database records to reduce stock and balance races during concurrent trades.
 
 ---
 
-## Chapter 2: Full Dynamic Pricing Analysis (7 Foundation Models)
+## Chapter 2: Dynamic Pricing Models
 
 By monitoring **demand heat ($D_t$)**, the system computes prices in real time with these models. Each model serves a different economic control objective.
 
@@ -90,29 +90,29 @@ Simulates herd behavior and run-like spikes.
 
 ---
 
-## Chapter 3: Full Auction Algorithm Analysis (4 Modes)
+## Chapter 3: Auction Models
 
 ### 3.1 English Auction
 
 - **Mechanism**: Highest bidder wins; each valid bid updates reference price.
-- **Anti-snipe**: If valid bid appears in final $N$ seconds, end time extends by $M$ seconds.
-- **Asset freeze**: Bid amount is strongly frozen immediately; if outbid, `AsyncRefundTask` unfreezes and refunds promptly.
+- **Anti-snipe**: If a valid bid appears in the final $N$ seconds, the end time extends by $M$ seconds, reducing the advantage of last-moment bidding.
+- **Fund freeze**: A valid bid freezes the corresponding wallet funds; outbid and settlement paths handle unfreezing and refunds within database transactions.
 
 ### 3.2 Dutch Auction
 
-- **Mechanism**: Starts high and decreases over time (for example, step-down per hour).
+- **Mechanism**: Price decreases linearly from the starting price to the configured floor over the configured duration.
 - **Game dynamic**: Waiting can lower price but increases chance of being sniped by another buyer.
 - **Use cases**: Official clearance sales, high-value liquidation.
 
 ### 3.3 Vickrey Auction
 
 - **Mechanism**: Sealed bids. Highest bidder wins, but pays second-highest price.
-- **Theory**: Encourages truthful bidding under mechanism design and reduces winner's curse effects.
+- **Theory**: Under standard independent-private-value assumptions, a second-price auction encourages bidding at one's own valuation. Actual outcomes still depend on participants, reserve price, and server configuration.
 
 ### 3.4 Candle Auction
 
-- **Mechanism**: Similar to English auction, but real ending point is hidden and random.
-- **Result**: Players are encouraged to bid competitively earlier instead of waiting for last-second snipes.
+- **Mechanism**: Similar to an English auction, but the actual end is selected within a random extension window after the public end time.
+- **Result**: Because the final moment inside that window is unknown, participants are encouraged to place valid bids earlier.
 
 ---
 
@@ -123,8 +123,7 @@ Simulates herd behavior and run-like spikes.
 Dynamic pricing is affected by both buy events and time:
 
 1. **Positive feedback (event-driven)**: each purchase injects demand based on quantity.
-2. **Negative feedback (time-driven decay)**: a periodic job decays demand by configured rate:
-   $$D_{\text{new}} = D_{\text{old}} \cdot (1 - \text{DecayRate})$$
+2. **Mean-reversion feedback (time-driven decay)**: a periodic job moves market pressure toward zero by a configured step. Positive values decrease and negative values increase without crossing zero.
 
 ### 4.2 Safety Protocols for Tuning
 
@@ -136,11 +135,10 @@ Dynamic pricing is affected by both buy events and time:
 ## Chapter 5: Technical Troubleshooting and Support
 
 **Q1: Why does page show one price, but purchase says price changed?**  
-A: This is normal in high-frequency dynamic markets. Price can update between view and request due to other purchases. `version` optimistic lock is protecting consistency.
+A: Another trade may complete between page display and submission, changing market pressure and the quote. Refresh the page and confirm the latest quote.
 
 **Q2: Why are frozen funds not refunded after auction failure?**  
-A: Most likely temporary TPS collapse or OOM paused async refund tasks (`AsyncRefundTask`).  
-**Fix**: Check backend logs, locate errors, then use admin commands or restart plugin to resync state if needed.
+A: First check whether the auction has reached its actual end time; candle auctions can include a random extension window. Then review market records, wallet ledger entries, and server logs. If the state remains unchanged, keep the listing ID, timestamps, and relevant logs and submit an issue. Do not edit the database directly.
 
 ---
 
@@ -150,5 +148,3 @@ WebShopX is continuously improving. If you encounter bugs during deployment or w
 
 Submit issues to the official GitHub repository:  
 [WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues)
-
-

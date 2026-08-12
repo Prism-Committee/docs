@@ -17,8 +17,12 @@ The official shop is a server-admin-managed **B2C** trading system. Unlike the p
 | --- | --- | --- |
 | **`COMMAND`** | **Command Execution** | Executes predefined commands via console or player identity after purchase. |
 | **`GIVE_ITEM`** | **Item Delivery** | Directly generates physical items and puts them in player inventory. |
+| **`GIVE_CUSTOM_ITEM`** | **Custom Item Delivery** | Executes the configured custom-item delivery logic. |
 | **`POTION_EFFECT`** | **Potion Effect** | Applies specific potion effects after purchase. |
+| **`SNAPSHOT_ITEM`** | **Snapshot Item** | Delivers an item from a stored item snapshot. |
 | **`RECYCLE_ITEM`** | **Recycle/Exchange** | Buys back specific player items at configured prices. |
+| **`RECYCLE_COMMAND_ITEM`** | **Command Recycle** | Recycles matching items and executes configured commands. |
+| **`RECYCLE_CUSTOM_ITEM`** | **Custom Item Recycle** | Matches and recycles items with custom-item rules. |
 | **`GROUP_BUY_VOUCHER`** | **Group Voucher/Redeem Code** | Delivers serials or vouchers, supports group redemption. |
 
 ## 2. Player Market
@@ -50,7 +54,7 @@ Not every combination is valid. See details below.
 
 ## 3. Order System
 
-The order system is the logical core of market trading, recording and processing the full flow from "trade initiation" to "item delivery." It supports real-time status tracking and includes refund and cooldown logic to protect both buyer and seller in asynchronous scenarios.
+The order system records and processes the flow from trade initiation to item delivery. It provides status tracking, refund policies, and cooldown configuration; outcomes still depend on order state, inventory, permissions, and server availability.
 
 ### (1) Order States
 
@@ -90,9 +94,9 @@ After order status becomes **DELIVERED**, refund is usually unavailable. If refu
 
 ### (1) Dynamic Pricing
 
-Dynamic pricing is a real-time pricing mechanism based on **supply-demand algorithms**. The system automatically recalculates and updates baseline unit prices from trade frequency, remaining stock, and traded volume within a time window.
+Dynamic pricing adjusts prices from a market-pressure value. Purchases increase pressure, recycling decreases it, and a periodic task moves it toward zero by a configured step. The selected algorithm, base price, pressure, and configured bounds determine the quote.
 
-> Main entries:
+> Main entries: [Dynamic Pricing](dynamic-pricing) and [Dynamic Pricing Models](algorithm#chapter-2-dynamic-pricing-models).
 
 | **Module** | **Type / Mode** | **Supported** | **Driver Logic** |
 | --- | --- | --- | --- |
@@ -105,7 +109,7 @@ Dynamic pricing is a real-time pricing mechanism based on **supply-demand algori
 
 ### (2) Auctions
 
-> Main entry:
+> Main entries: [Auctions](auctions) and [Auction Models](algorithm#chapter-3-auction-models).
 
 Auction is a special trade form based on **bidding logic**. It fits items with uncertain or extremely scarce value. Seller sets starting price and bid increments, then buyers compete within limited time. The order system locks top bidder funds and transfers ownership automatically at settlement.
 

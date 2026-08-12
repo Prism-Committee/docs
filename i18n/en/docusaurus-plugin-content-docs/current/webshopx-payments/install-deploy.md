@@ -11,8 +11,8 @@ Install `WebShopX-Payments` on the Minecraft server, launch the embedded payment
 
 ## 1. Environment Requirements
 
-- **Java Version**: `Java 21` or higher is required for operation (we recommend `JDK 25` for compilation).
-- **Minecraft Server**: `Paper 1.20.6+` (fully compatible with common server software like Spigot, Purpur, etc.).
+- **Java Runtime**: Follow the requirement of your Minecraft server. The plugin artifacts target Java 8 bytecode; the JDK used by the project's build workflow does not set the server runtime requirement.
+- **Minecraft Server**: The release contains multiple Bukkit/NMS adapters. Use the compatibility list in the release notes for the exact build you install; the current source tree includes adapters from older Bukkit versions through 1.21.x/26.1.
 - **Prerequisite Dependency**: You must install the [WebShopX Core Plugin](https://modrinth.com/plugin/webshopx) in the same directory.
 - **Network Connectivity**: The server requires stable internet access to reach Alipay, WeChat Pay, PayPal, MercadoPago, and other payment gateways. If you are deploying on a server inside mainland China and using PayPal or MercadoPago, we strongly advise configuring a proxy in the backend settings.
 
@@ -86,5 +86,5 @@ sequenceDiagram
 ```
 
 :::note[Transaction Failure Tolerance]
-If, during step **14**, the billing listener on `WebShopX` fails to execute (e.g., due to temporary database locks), the successfully paid transaction will be saved as a pending confirmation state in `wsxpay-orders.yml`. The plugin will continually retry the notification until delivery is fully successful, thereby preventing any lost orders.
+If a business listener does not confirm a payment-status notification, the record remains unnotified in `wsxpay-orders.yml`; the plugin retries it periodically while running. This reduces missed-notification risk during temporary failures, but operators should still monitor errors and reconcile payment-platform records with the WebShopX ledger.
 :::

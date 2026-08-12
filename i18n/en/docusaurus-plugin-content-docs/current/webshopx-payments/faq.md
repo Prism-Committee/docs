@@ -71,10 +71,10 @@ For security reasons, the embedded backend validates whether the Hook helper sof
 
 ### Q: Java Class Version errors occur during Gradle builds?
 :::note[Recommended Build Environment]
-The `WebShopX-Payments` source code utilizes modern Java features. **JDK 25 is recommended and required** for compilation.
+The project CI currently builds with JDK 25, so using JDK 25 locally is recommended to match the official build environment. Plugin artifacts target Java 8 bytecode; this does not mean the Minecraft server runtime must use Java 25.
 In a Windows PowerShell terminal, you can temporarily specify the JDK path for compilation using:
 ```powershell
-$env:JAVA_HOME='C:\Program Files\Java\jdk-25.0.3'
+$env:JAVA_HOME='C:\Program Files\Java\jdk-25'
 $env:JAVA_TOOL_OPTIONS='-Duser.country=US'
 .\gradlew.bat :plugin:bukkit:with-backend:build
 ```

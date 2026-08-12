@@ -7,7 +7,7 @@ sidebar_position: 7
 
 # Commands & Permissions
 
-`WebShopX-Payments` provides extremely simple in-game commands and permission nodes, mainly used by administrators for configuration hot-reloading and runtime troubleshooting.
+`WebShopX-Payments` provides in-game commands and permission nodes for configuration hot-reloading and runtime troubleshooting.
 
 ---
 

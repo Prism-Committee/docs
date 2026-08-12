@@ -74,10 +74,10 @@ v3 排障应先执行 `/wsxpay status`，再区分“Provider 未注册”“内
 
 ### Q：使用 Gradle 构建打包时出现 Java Class Version 错误？
 :::note[编译环境推荐]
-`WebShopX-Payments` 源码包含较新的 Java 特性，**推荐且必须使用 JDK 25** 进行编译。
+项目 CI 当前使用 JDK 25 构建，建议本地构建也使用 JDK 25，以减少与官方构建环境的差异。插件产物以 Java 8 字节码为目标；这不表示 Minecraft 服务端运行时必须使用 Java 25。
 在 Windows PowerShell 终端中，您可以通过以下命令临时指定 JDK 路径进行编译：
 ```powershell
-$env:JAVA_HOME='C:\Program Files\Java\jdk-25.0.3'
+$env:JAVA_HOME='C:\Program Files\Java\jdk-25'
 $env:JAVA_TOOL_OPTIONS='-Duser.country=US'
 .\gradlew.bat :plugin:bukkit:with-backend:build
 ```
