@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
+import {AiAccess, DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
 
 # Prism-Committee Docs
 
@@ -52,6 +52,17 @@ import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisua
 ]} />
 
 </ProjectPanel>
+
+<AiAccess
+  title="Help AI read this site accurately"
+  description="This site publishes a Chinese documentation index and Markdown for every page. Ask AI to read the index first, then fetch only the relevant pages."
+  indexLabel="Chinese documentation index"
+  pageLabel="Per-page Markdown"
+  copyLabel="Copy AI prompt"
+  copiedLabel="Copied"
+  failedLabel="Copy failed"
+  prompt="Read https://docs.akihito.dpdns.org/llms.txt to discover this site's Chinese documentation, then fetch the linked Markdown pages as needed. Base your answer primarily on those documents and cite the relevant page URLs. If the documentation does not contain the answer, say so clearly instead of guessing."
+/>
 
 :::info[Feedback and issues]
 Report WebShopX or documentation issues at [Prism-Committee/WebShopX-Issues](https://github.com/Prism-Committee/WebShopX-Issues).

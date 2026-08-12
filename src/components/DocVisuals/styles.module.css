@@ -281,6 +281,76 @@
   margin-top: .32rem;
 }
 
+.aiAccess {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 1.75rem 0;
+  padding: 1.35rem 1.45rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--ifm-color-primary-contrast-background), var(--ifm-background-surface-color));
+}
+
+.aiEyebrow {
+  display: block;
+  margin-bottom: .3rem;
+  color: var(--ifm-color-primary);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.aiTitle {
+  margin: 0 0 .4rem;
+  font-size: 1.2rem;
+}
+
+.aiDescription {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+}
+
+.aiLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1rem;
+  margin-top: .7rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: .82rem;
+}
+
+.aiCopyButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: .45rem;
+  min-height: 2.5rem;
+  padding: .5rem .85rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: .5rem;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-white);
+  cursor: pointer;
+  font: inherit;
+  font-size: .875rem;
+  font-weight: 700;
+}
+
+.aiCopyButton:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.aiCopyButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 @media (max-width: 760px) {
   .projectHeader {
     flex-direction: column;
@@ -288,6 +358,11 @@
 
   .projectLinks {
     justify-content: flex-start;
+  }
+
+  .aiAccess {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
 

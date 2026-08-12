@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
+import {AiAccess, DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisuals';
 
 # Prism-Committee 文档
 
@@ -52,3 +52,14 @@ import {DocHero, FeatureCards, ProjectPanel} from '@site/src/components/DocVisua
 ]} />
 
 </ProjectPanel>
+
+<AiAccess
+  title="让 AI 更准确地读取本站"
+  description="本站提供中文文档索引和每页 Markdown 原文。让 AI 先读取索引，再按需获取具体页面，可以减少导航干扰和无关内容。"
+  indexLabel="中文文档索引"
+  pageLabel="单页 Markdown"
+  copyLabel="复制 AI 提示词"
+  copiedLabel="已复制"
+  failedLabel="复制失败"
+  prompt="请读取 https://docs.akihito.dpdns.org/llms.txt 获取本站中文文档索引，并按需读取其中链接的 Markdown 内容。回答时请以这些文档为主要依据，注明相关页面 URL；若文档没有提供答案，请明确说明，不要猜测。"
+/>
