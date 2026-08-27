@@ -34,7 +34,7 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 ## 当前文档基线
 
 :::info
-本文档以 WebShopX v3 开发线为主要基线。不同发行版本可能存在功能、字段或界面差异；涉及部署、配置和 API 时，请确认实际安装的 WebShopX 版本。
+本文档以 WebShopX v3 为主要基线，当前稳定版为 **v3.2.2**（2026-08）。不同发行版本可能存在功能、字段或界面差异；涉及部署、配置和 API 时，请确认实际安装的 WebShopX 版本。
 :::
 
 ## WebShopX 与 WebShopX-Payments

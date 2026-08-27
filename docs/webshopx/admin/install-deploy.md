@@ -21,6 +21,8 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 
 ## 1. 环境要求
 
+当前稳定版为 **v3.2.2**。请选择与 Minecraft 版本和服务端类型匹配的构建。
+
 | Minecraft 运行时 | Java | Folia 构建 |
 | --- | ---: | --- |
 | `1.18.2+` | 17 | 不提供 |
@@ -29,17 +31,29 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 | `26.2+` | 25 | 提供 |
 
 - 推荐 Paper / Purpur；Spigot 也受支持；
-- Folia 必须使用对应 Folia 构建；
+- Folia 必须使用对应 Folia 构建，不要混用 Paper 构建；
 - 默认数据库为 SQLite；
 - 生产或高并发场景推荐 MySQL / MariaDB；
 - Vault、WebShopX-Payments 与 YuPay 都是可选软依赖。
 
 ## 2. 获取插件
 
-请选择与你的 Minecraft 版本和服务端类型匹配的 JAR：
+下载渠道：
 
 - [Modrinth](https://modrinth.com/plugin/webshopx)
-- [MineBBS](https://www.minebbs.com/resources/webshopx-minecraft.15688/updates)
+- [GitHub Releases](https://github.com/Prism-Committee/WebShopX-Issues/releases/latest)
+- [MineBBS](https://www.minebbs.com/resources/x-folia-webshopx.15688/)
+
+每个版本提供多种构建变体：
+
+| 变体 | 说明 |
+| --- | --- |
+| `full` | 包含 Windows 和 Linux 依赖，体积较大 |
+| `slim` | 不含依赖，服务器启动时自动下载，需要能联网 |
+| `full-win` | 仅含 Windows 依赖 |
+| `full-linux` | 仅含 Linux 依赖 |
+
+Paper / Purpur / Spigot 使用对应的 Paper 构建；Folia 必须使用 Folia 构建。按自己的 Minecraft 版本区间选择 JAR，不要只看文件名里的 `3.2.2`。
 
 ## 3. 最快部署：SQLite + internal
 
@@ -83,6 +97,8 @@ database:
 
 ## 5. 选择部署模式
 
+产品说明里的 Embedded 对应配置值 `internal`（`webshop.server-mode`）。YAML 里请写 `internal` / `external` / `relay`，不要改成 `embedded`。
+
 <Tabs groupId="webshopx-deployment-mode">
 <TabItem value="internal" label="internal" default>
 
@@ -114,6 +130,10 @@ webshop:
 
 </TabItem>
 <TabItem value="relay" label="relay">
+
+:::caution[仍在测试]
+Relay 功能已实现，但仍在进一步测试中。使用前请阅读 [Relay 公网访问](./relay-access.md)，或加入 QQ 群 / Discord 获取帮助。
+:::
 
 Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay，由 Relay 为对应项目提供公网商城入口。
 

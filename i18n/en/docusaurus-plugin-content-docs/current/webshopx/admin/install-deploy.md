@@ -21,13 +21,35 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 
 ## Requirements
 
-Choose a WebShopX build that matches both your Minecraft runtime and Java version:
+Current stable release is **v3.2.2**. Choose a build that matches both Minecraft version and server type.
 
-- Minecraft `1.18.2+`: Java `17`
-- Minecraft `1.20.6+` (default line): Java `21`
-- Minecraft `26.1+ / 26.2+`: Java `25`
+| Minecraft runtime | Java | Folia build |
+| --- | ---: | --- |
+| `1.18.2+` | 17 | Not available |
+| `1.20.6+` | 21 | Available |
+| `26.1+` | 25 | Available |
+| `26.2+` | 25 | Available |
 
-SQLite is the default database for quick single-server setup. MySQL or MariaDB is recommended for production or multi-server deployments. Vault is optional for `GAME_COIN` integration.
+Paper / Purpur are recommended; Spigot is also supported. Folia servers must use the Folia JAR. SQLite is the default for a first single-server setup; MySQL or MariaDB is recommended for production or multi-server deployments. Vault is optional for `GAME_COIN` integration.
+
+## Get the plugin
+
+Download channels:
+
+- [Modrinth](https://modrinth.com/plugin/webshopx)
+- [GitHub Releases](https://github.com/Prism-Committee/WebShopX-Issues/releases/latest)
+- [MineBBS](https://www.minebbs.com/resources/x-folia-webshopx.15688/)
+
+Each release ships several JAR variants:
+
+| Variant | What it includes |
+| --- | --- |
+| `full` | Windows and Linux native dependencies (largest) |
+| `slim` | No bundled dependencies; downloads them on first start (needs network) |
+| `full-win` | Windows dependencies only |
+| `full-linux` | Linux dependencies only |
+
+Use a Paper build for Paper / Purpur / Spigot. Folia servers must use a Folia build. Pick the jar for your Minecraft version range, not only the `3.2.2` version string.
 
 ## First Startup
 
@@ -52,6 +74,8 @@ Replace or disable the default administrator immediately after initialization.
 
 ## Deployment Modes
 
+Product copy uses **Embedded** for config `webshop.server-mode: internal`. Keep `internal`, `external`, and `relay` in YAML.
+
 <Tabs groupId="webshopx-deployment-mode">
 <TabItem value="internal" label="internal" default>
 
@@ -64,6 +88,10 @@ WebShopX serves the API while static files are hosted by Nginx/CDN or another we
 
 </TabItem>
 <TabItem value="relay" label="relay">
+
+:::caution[Still in testing]
+Relay is implemented but still undergoing further testing. Read [Relay Public Access](./relay-access) first, or ask in the QQ group / Discord.
+:::
 
 WebShopX connects outbound to WebShopX Relay, so the Minecraft host does not need to expose the web port directly.
 
