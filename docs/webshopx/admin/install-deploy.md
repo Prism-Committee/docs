@@ -97,6 +97,8 @@ database:
 
 ## 5. 选择部署模式
 
+产品说明里的 Embedded 对应配置值 `internal`（`webshop.server-mode`）。YAML 里请写 `internal` / `external` / `relay`，不要改成 `embedded`。
+
 <Tabs groupId="webshopx-deployment-mode">
 <TabItem value="internal" label="internal" default>
 
@@ -128,6 +130,10 @@ webshop:
 
 </TabItem>
 <TabItem value="relay" label="relay">
+
+:::caution[仍在测试]
+Relay 功能已实现，但仍在进一步测试中。使用前请阅读 [Relay 公网访问](./relay-access.md)，或加入 QQ 群 / Discord 获取帮助。
+:::
 
 Relay 模式下，Minecraft 服务器不需要直接向公网开放 Web 端口。插件主动连接 WebShopX Relay，由 Relay 为对应项目提供公网商城入口。
 
