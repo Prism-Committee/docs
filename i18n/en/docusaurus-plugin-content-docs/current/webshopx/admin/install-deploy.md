@@ -21,13 +21,32 @@ import {DocHero, FeatureCards} from '@site/src/components/DocVisuals';
 
 ## Requirements
 
-Choose a WebShopX build that matches both your Minecraft runtime and Java version:
+Current stable release is **v3.2.2**. Choose a WebShopX build that matches both your Minecraft runtime and Java version:
 
-- Minecraft `1.18.2+`: Java `17`
-- Minecraft `1.20.6+` (default line): Java `21`
-- Minecraft `26.1+ / 26.2+`: Java `25`
+- Minecraft `1.18.2+`: Java `17` (no Folia build)
+- Minecraft `1.20.6+` (default line): Java `21` (Folia build available)
+- Minecraft `26.1+ / 26.2+`: Java `25` (Folia build available)
 
 SQLite is the default database for quick single-server setup. MySQL or MariaDB is recommended for production or multi-server deployments. Vault is optional for `GAME_COIN` integration.
+
+## Get the plugin
+
+Download channels:
+
+- [Modrinth](https://modrinth.com/plugin/webshopx)
+- [GitHub Releases](https://github.com/Prism-Committee/WebShopX-Issues/releases/latest)
+- [MineBBS](https://www.minebbs.com/resources/x-folia-webshopx.15688/)
+
+Each release ships several JAR variants:
+
+| Variant | What it includes |
+| --- | --- |
+| `full` | Windows and Linux native dependencies (largest) |
+| `slim` | No bundled dependencies; downloads them on first start (needs network) |
+| `full-win` | Windows dependencies only |
+| `full-linux` | Linux dependencies only |
+
+Use a Paper build for Paper / Purpur / Spigot. Folia servers must use a Folia build. Pick the jar for your Minecraft version range, not only the `3.2.2` version string.
 
 ## First Startup
 
