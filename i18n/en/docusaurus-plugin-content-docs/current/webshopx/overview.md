@@ -46,7 +46,7 @@ The visible navigation intentionally does not mirror the repository's `player/`,
 ## Documentation baseline
 
 :::info
-These docs primarily track the WebShopX v3 development line. Confirm the exact version installed on your server before relying on configuration or API details.
+These docs primarily track WebShopX v3. The current stable release is **v3.2.2** (2026-08). Confirm the exact version installed on your server before relying on configuration or API details.
 :::
 
 ## WebShopX and WebShopX-Payments
