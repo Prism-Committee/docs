@@ -53,6 +53,30 @@ import {AiAccess, DocHero, FeatureCards, ProjectPanel} from '@site/src/component
 
 </ProjectPanel>
 
+<ProjectPanel
+  icon="📸"
+  title="PicHarbor"
+  description="面向跨平台设备的照片管理、备份与同步工具。解决 Windows 导入 iPhone 照片频繁卡死与 0 字节损坏难题，支持多硬盘逻辑图库与 Google 相册原生自动同步。"
+  links={[
+    {label: 'Desktop ↗', to: 'https://github.com/Cc-Cece/PicHarbor'},
+    {label: 'Android ↗', to: 'https://github.com/Cc-Cece/PicHarbor-Android'},
+    {label: 'iOS ↗', to: 'https://github.com/Cc-Cece/PicHarbor-iOS'},
+    {label: '官网主页 ↗', to: 'https://picharbor.akihito.dpdns.org/'},
+  ]}>
+
+<FeatureCards items={[
+  {icon: '🧭', title: 'PicHarbor 概览', description: '了解 PicHarbor 生态定位与能帮你解决的问题。', to: './picharbor/overview', badge: '推荐入口'},
+  {icon: '👋', title: '快速上手指南', description: '下载安装，在 5 分钟内开启第一次安全照片备份。', to: './picharbor/start/quick-start', badge: 'Get started'},
+  {icon: '🍏', title: 'iPhone 照片备份', description: '数据线直连高速拉取，完整保留实况与修图。', to: './picharbor/guides/iphone-backup'},
+  {icon: '🤖', title: 'Android 照片同步', description: '局域网无线增量传输，只传新拍照片。', to: './picharbor/guides/android-backup'},
+  {icon: '💾', title: '多盘图库管理', description: '老照片在旧盘、新照片存新盘，统一合并浏览。', to: './picharbor/guides/library-management'},
+  {icon: '🧹', title: '安全释放手机空间', description: '双重核验确认安全后，无损腾出手机几十 GB。', to: './picharbor/guides/cleanup-and-free-space'},
+  {icon: '❓', title: '常见问题 (FAQ)', description: '连不上手机、不信任、卡住断线排查。', to: './picharbor/guides/faq'},
+  {icon: '💻', title: '开发者文档', description: '查阅源码构建、系统架构与 GPMC 底层协议。', to: './picharbor/developer/quickstart'},
+]} />
+
+</ProjectPanel>
+
 <AiAccess
   title="让 AI 更准确地读取本站"
   description="本站提供中文文档索引和每页 Markdown 原文。让 AI 先读取索引，再按需获取具体页面，可以减少导航干扰和无关内容。"
